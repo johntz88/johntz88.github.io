@@ -1,0 +1,1836 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星空丶天美丶梦幻丶乌鸦_原创观星影像社区_天文摄影与星空故事平台</title>
+<meta name="description" content="星空丶天美丶梦幻丶乌鸦官方网站，专注星空摄影、天文科普与观星影像的原创内容平台，汇集专业创作者与天文爱好者，提供高清星空视频、观测攻略与社区交流。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1230'/%3E%3Ccircle cx='44' cy='20' r='7' fill='%23f5c86b'/%3E%3Cpath d='M14 46l10-16 8 12 6-8 10 20z' fill='%235b6ee8'/%3E%3Ccircle cx='18' cy='16' r='1.8' fill='%23ffffff'/%3E%3Ccircle cx='30' cy='26' r='1.4' fill='%23ffffff'/%3E%3Ccircle cx='52' cy='42' r='1.6' fill='%23ffffff'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --xk-night:#0b1030;
+    --xk-night-2:#131a45;
+    --xk-night-3:#1c2459;
+    --xk-ink:#1a1f3a;
+    --xk-ink-soft:#4b5270;
+    --xk-star:#f5c86b;
+    --xk-star-soft:#ffe6a8;
+    --xk-violet:#7b8cf0;
+    --xk-violet-deep:#4a5bd6;
+    --xk-mist:#eef0fb;
+    --xk-paper:#f7f8fd;
+    --xk-line:#d9ddf2;
+    --xk-teal:#57c6bf;
+    --xk-radius:16px;
+    --xk-shadow:0 10px 30px rgba(20,26,70,.10);
+    --xk-shadow-deep:0 18px 48px rgba(10,15,50,.32);
+    --xk-sticky-h:104px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:var(--xk-sticky-h);}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+    color:var(--xk-ink);
+    background:var(--xk-paper);
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700;}
+  p{margin:0;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  .xk-wrap{width:min(1180px,92vw);margin:0 auto;}
+  .xk-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+  /* ---------- 吸顶：公告条 + 页头 ---------- */
+  .xk-topbar-stack{
+    position:sticky;top:0;z-index:80;
+    backdrop-filter:blur(10px);
+  }
+  .xk-announce{
+    background:linear-gradient(90deg,#1c2459,#2a2f7a 55%,#4338a8);
+    color:#e9ecff;
+    font-size:13.5px;
+    letter-spacing:.2px;
+  }
+  .xk-announce-inner{
+    display:flex;align-items:center;gap:14px;
+    padding:8px 0;flex-wrap:wrap;
+  }
+  .xk-announce-badge{
+    background:var(--xk-star);color:#2b2205;
+    font-weight:700;font-size:12px;padding:2px 9px;border-radius:999px;
+    flex:none;
+  }
+  .xk-announce-text{flex:1 1 320px;min-width:0;}
+  .xk-announce-text strong{color:var(--xk-star-soft);font-weight:700;}
+  .xk-announce-link{
+    color:var(--xk-star-soft);font-weight:600;font-size:13px;
+    border-bottom:1px dashed rgba(255,230,168,.5);flex:none;
+  }
+  .xk-header{
+    background:rgba(247,248,253,.94);
+    border-bottom:1px solid var(--xk-line);
+    box-shadow:0 4px 18px rgba(18,24,64,.06);
+  }
+  .xk-header-inner{
+    display:flex;align-items:center;gap:22px;padding:13px 0;
+  }
+  .xk-brand{display:flex;align-items:center;gap:11px;flex:none;}
+  .xk-brand-mark{flex:none;width:42px;height:42px;}
+  .xk-brand-texts{display:flex;flex-direction:column;line-height:1.2;}
+  .xk-brand-name{font-weight:800;font-size:17px;letter-spacing:.5px;color:var(--xk-night);}
+  .xk-brand-sub{font-size:11px;color:var(--xk-ink-soft);letter-spacing:1.4px;}
+  .xk-nav{display:flex;gap:4px;flex:1;flex-wrap:wrap;}
+  .xk-nav a{
+    padding:7px 11px;border-radius:9px;font-size:14.5px;color:var(--xk-ink-soft);
+    font-weight:500;transition:.18s;
+  }
+  .xk-nav a:hover,.xk-nav a:focus-visible{background:var(--xk-mist);color:var(--xk-violet-deep);}
+  .xk-header-tools{display:flex;align-items:center;gap:10px;flex:none;}
+  .xk-search{
+    display:flex;align-items:center;gap:7px;
+    background:#fff;border:1px solid var(--xk-line);border-radius:999px;
+    padding:6px 13px;min-width:210px;transition:.2s;
+  }
+  .xk-search:focus-within{border-color:var(--xk-violet);box-shadow:0 0 0 3px rgba(123,140,240,.16);}
+  .xk-search input{
+    border:none;outline:none;background:transparent;font-size:13.5px;width:100%;
+    color:var(--xk-ink);font-family:inherit;
+  }
+  .xk-search input::placeholder{color:#9aa1c0;}
+  .xk-search-btn{padding:2px;display:flex;flex:none;}
+  .xk-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    border-radius:999px;font-weight:600;font-size:14px;
+    padding:9px 20px;transition:.2s;border:1px solid transparent;
+  }
+  .xk-btn-primary{
+    background:linear-gradient(135deg,var(--xk-violet-deep),#7a4fe0);
+    color:#fff;box-shadow:0 8px 20px rgba(90,80,220,.30);
+  }
+  .xk-btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(90,80,220,.4);}
+  .xk-btn-ghost{
+    background:rgba(255,255,255,.08);color:#e8ebff;border-color:rgba(232,235,255,.4);
+  }
+  .xk-btn-ghost:hover{background:rgba(255,255,255,.18);}
+  .xk-btn-soft{background:var(--xk-mist);color:var(--xk-violet-deep);}
+  .xk-btn-soft:hover{background:#e2e6fb;}
+  .xk-nav-toggle{
+    display:none;width:42px;height:42px;border-radius:11px;
+    background:var(--xk-mist);align-items:center;justify-content:center;
+  }
+  .xk-nav-toggle span{display:block;width:19px;height:2px;background:var(--xk-night);position:relative;}
+  .xk-nav-toggle span::before,.xk-nav-toggle span::after{
+    content:"";position:absolute;left:0;width:19px;height:2px;background:var(--xk-night);
+  }
+  .xk-nav-toggle span::before{top:-6px;}
+  .xk-nav-toggle span::after{top:6px;}
+  .xk-search-hint{
+    font-size:12.5px;color:var(--xk-violet-deep);padding:4px 2px 0;
+    min-height:0;
+  }
+
+  /* ---------- 首屏 ---------- */
+  .xk-hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(1100px 520px at 82% -10%, rgba(123,140,240,.42), transparent 62%),
+      radial-gradient(760px 420px at 6% 8%, rgba(87,198,191,.20), transparent 60%),
+      linear-gradient(165deg,#0b1030 0%,#131a45 52%,#201a4e 100%);
+    color:#eaeefc;
+    padding:56px 0 64px;
+  }
+  .xk-hero-stars{position:absolute;inset:0;pointer-events:none;opacity:.9;}
+  .xk-hero-grid{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+    gap:48px;align-items:center;
+  }
+  .xk-hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(245,200,107,.14);color:var(--xk-star-soft);
+    border:1px solid rgba(245,200,107,.38);
+    font-size:12.5px;font-weight:600;letter-spacing:1px;
+    padding:5px 14px;border-radius:999px;margin-bottom:20px;
+  }
+  .xk-hero h1{
+    font-size:clamp(32px,4.4vw,52px);
+    letter-spacing:1px;line-height:1.22;
+    color:#fff;
+  }
+  .xk-hero h1 em{
+    font-style:normal;
+    background:linear-gradient(100deg,var(--xk-star),#fff0c4 60%,var(--xk-teal));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .xk-hero-lead{
+    margin-top:18px;font-size:16.5px;color:#c8cdf0;max-width:34em;
+  }
+  .xk-hero-lead strong{color:var(--xk-star-soft);font-weight:700;}
+  .xk-hero-intro{
+    margin-top:16px;font-size:14.5px;color:#aab2de;max-width:35em;
+    border-left:2px solid rgba(245,200,107,.5);padding-left:14px;
+  }
+  .xk-hero-actions{display:flex;gap:13px;margin-top:26px;flex-wrap:wrap;}
+  .xk-stats{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;margin-top:34px;
+  }
+  .xk-stat{
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(180,192,255,.18);
+    border-radius:13px;padding:14px 15px;
+  }
+  .xk-stat-num{
+    font-size:26px;font-weight:800;color:var(--xk-star);
+    letter-spacing:.5px;line-height:1.1;
+  }
+  .xk-stat-num small{font-size:13px;color:#c8cdf0;font-weight:600;margin-left:2px;}
+  .xk-stat-label{font-size:12.5px;color:#a9b1dd;margin-top:5px;letter-spacing:.4px;}
+  .xk-hero-visual{position:relative;}
+  .xk-hero-frame{
+    border-radius:22px;overflow:hidden;
+    border:1px solid rgba(180,192,255,.26);
+    box-shadow:var(--xk-shadow-deep);
+    background:#0a0f2b;
+  }
+  .xk-hero-frame svg{width:100%;height:auto;}
+  .xk-hero-caption{
+    margin-top:13px;font-size:12.5px;color:#9ba4d4;
+    display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+  .xk-hero-caption b{color:var(--xk-star-soft);font-weight:600;}
+
+  /* ---------- 通用 section ---------- */
+  .xk-section{padding:66px 0;}
+  .xk-section-alt{background:#fff;}
+  .xk-section-tint{background:linear-gradient(180deg,#f1f3fc,#f7f8fd);}
+  .xk-sec-head{margin-bottom:34px;max-width:44em;}
+  .xk-sec-kicker{
+    display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:2px;
+    color:var(--xk-violet-deep);background:var(--xk-mist);
+    padding:4px 12px;border-radius:999px;margin-bottom:12px;
+  }
+  .xk-sec-head h2{font-size:clamp(23px,2.6vw,31px);color:var(--xk-night);letter-spacing:.4px;}
+  .xk-sec-head h2 em{
+    font-style:normal;color:var(--xk-violet-deep);
+  }
+  .xk-sec-desc{margin-top:12px;color:var(--xk-ink-soft);font-size:15px;}
+
+  /* ---------- 视频主内容：一幅大图 + 文字列表 ---------- */
+  .xk-video-layout{
+    display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);
+    gap:34px;align-items:start;
+  }
+  .xk-feature-card{
+    background:#fff;border-radius:var(--xk-radius);overflow:hidden;
+    border:1px solid var(--xk-line);box-shadow:var(--xk-shadow);
+    transition:transform .22s,box-shadow .22s;
+  }
+  .xk-feature-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(24,30,80,.14);}
+  .xk-feature-media{position:relative;aspect-ratio:16/9;background:#0b1030;}
+  .xk-feature-media svg{width:100%;height:100%;}
+  .xk-play-badge{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:62px;height:62px;border-radius:50%;
+    background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.32);
+  }
+  .xk-play-badge::after{
+    content:"";border-style:solid;border-width:11px 0 11px 18px;
+    border-color:transparent transparent transparent #1a2150;margin-left:4px;
+  }
+  .xk-feature-body{padding:22px 24px 24px;}
+  .xk-tag-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;}
+  .xk-tag{
+    font-size:11.5px;font-weight:600;letter-spacing:.3px;
+    padding:3px 10px;border-radius:999px;
+    background:var(--xk-mist);color:var(--xk-violet-deep);
+  }
+  .xk-tag-star{background:rgba(245,200,107,.20);color:#8a6208;}
+  .xk-tag-teal{background:rgba(87,198,191,.16);color:#1a7c76;}
+  .xk-feature-body h3{font-size:20px;margin-bottom:9px;color:var(--xk-night);}
+  .xk-feature-body p{font-size:14.5px;color:var(--xk-ink-soft);}
+  .xk-meta-row{
+    display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    margin-top:16px;font-size:13px;color:#7b82a3;
+  }
+  .xk-meta-row b{color:var(--xk-night);font-weight:600;}
+  .xk-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+  .xk-act{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:13px;font-weight:600;color:var(--xk-ink-soft);
+    background:var(--xk-paper);border:1px solid var(--xk-line);
+    padding:6px 13px;border-radius:999px;transition:.18s;
+  }
+  .xk-act:hover{background:var(--xk-mist);color:var(--xk-violet-deep);border-color:#c3caf0;}
+  .xk-act.is-liked{background:rgba(245,200,107,.18);color:#8a6208;border-color:rgba(245,200,107,.55);}
+  .xk-act.is-saved{background:rgba(123,140,240,.16);color:var(--xk-violet-deep);border-color:rgba(123,140,240,.5);}
+
+  .xk-text-list{display:flex;flex-direction:column;gap:0;background:#fff;border:1px solid var(--xk-line);border-radius:var(--xk-radius);box-shadow:var(--xk-shadow);overflow:hidden;}
+  .xk-text-item{
+    display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;
+    padding:18px 22px;border-bottom:1px solid #edf0fa;transition:background .18s;
+  }
+  .xk-text-item:last-child{border-bottom:none;}
+  .xk-text-item:hover{background:#f8f9ff;}
+  .xk-rank{
+    font-size:17px;font-weight:800;color:#c8cdf0;letter-spacing:.5px;
+    line-height:1.5;
+  }
+  .xk-text-item:hover .xk-rank{color:var(--xk-violet-deep);}
+  .xk-text-item h3{font-size:15.5px;margin-bottom:5px;color:var(--xk-night);}
+  .xk-text-item p{font-size:13.5px;color:var(--xk-ink-soft);}
+  .xk-item-foot{
+    display:flex;gap:12px;flex-wrap:wrap;align-items:center;
+    margin-top:9px;font-size:12.5px;color:#7b82a3;
+  }
+  .xk-item-foot .xk-mini-act{padding:3px 10px;font-size:12px;border-radius:999px;background:var(--xk-paper);border:1px solid var(--xk-line);transition:.18s;}
+  .xk-item-foot .xk-mini-act:hover{background:var(--xk-mist);color:var(--xk-violet-deep);}
+  .xk-item-foot .xk-mini-act.is-liked{background:rgba(245,200,107,.18);color:#8a6208;border-color:rgba(245,200,107,.5);}
+  .xk-item-foot .xk-mini-act.is-saved{background:rgba(123,140,240,.16);color:var(--xk-violet-deep);border-color:rgba(123,140,240,.5);}
+
+  /* ---------- 关键词解析 ---------- */
+  .xk-deep{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.42fr);
+    gap:40px;align-items:start;
+  }
+  .xk-deep-body p{font-size:15px;color:#3d4468;margin-bottom:14px;}
+  .xk-deep-body h3{
+    font-size:18.5px;color:var(--xk-night);margin:26px 0 10px;
+    padding-left:13px;border-left:4px solid var(--xk-violet);
+  }
+  .xk-deep-body h3:first-child{margin-top:0;}
+  .xk-deep-body strong{color:var(--xk-violet-deep);font-weight:700;}
+  .xk-side-card{
+    background:#fff;border:1px solid var(--xk-line);border-radius:var(--xk-radius);
+    padding:22px;box-shadow:var(--xk-shadow);margin-bottom:18px;
+  }
+  .xk-side-card h4{font-size:15px;color:var(--xk-night);margin-bottom:12px;letter-spacing:.5px;}
+  .xk-side-card ul{display:flex;flex-direction:column;gap:9px;}
+  .xk-side-card li{
+    font-size:13.5px;color:var(--xk-ink-soft);padding-left:16px;position:relative;
+  }
+  .xk-side-card li::before{
+    content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;
+    background:var(--xk-star);
+  }
+  .xk-quote{
+    background:linear-gradient(150deg,#1c2459,#2c2470);color:#dfe3ff;
+    border-radius:var(--xk-radius);padding:24px;box-shadow:var(--xk-shadow);
+  }
+  .xk-quote p{font-size:14.5px;line-height:1.9;}
+  .xk-quote cite{display:block;margin-top:12px;font-size:12.5px;color:var(--xk-star-soft);font-style:normal;}
+
+  /* ---------- 专题：三列 ---------- */
+  .xk-topic-grid{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;
+  }
+  .xk-topic-card{
+    background:#fff;border:1px solid var(--xk-line);border-radius:var(--xk-radius);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .22s,box-shadow .22s;box-shadow:0 4px 14px rgba(24,30,80,.05);
+  }
+  .xk-topic-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(24,30,80,.13);}
+  .xk-topic-media{aspect-ratio:16/9;background:#141a45;overflow:hidden;}
+  .xk-topic-media svg{width:100%;height:100%;}
+  .xk-topic-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1;}
+  .xk-topic-body h3{font-size:16.5px;color:var(--xk-night);margin-bottom:8px;}
+  .xk-topic-body p{font-size:13.5px;color:var(--xk-ink-soft);}
+  .xk-topic-status{
+    margin-top:12px;font-size:12px;font-weight:700;letter-spacing:.4px;
+    color:#1a7c76;background:rgba(87,198,191,.14);
+    padding:3px 10px;border-radius:999px;align-self:flex-start;
+  }
+  .xk-topic-items{margin-top:13px;display:flex;flex-direction:column;gap:7px;}
+  .xk-topic-items li{
+    font-size:13px;color:#4b5270;padding-left:15px;position:relative;
+    border-bottom:1px dashed #e7eaf7;padding-bottom:6px;
+  }
+  .xk-topic-items li:last-child{border-bottom:none;padding-bottom:0;}
+  .xk-topic-items li::before{
+    content:"›";position:absolute;left:2px;top:-1px;color:var(--xk-violet);font-weight:700;
+  }
+
+  /* ---------- 作者：双列简介 ---------- */
+  .xk-author-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+  .xk-author-card{
+    display:grid;grid-template-columns:66px minmax(0,1fr);gap:17px;
+    background:#fff;border:1px solid var(--xk-line);border-radius:var(--xk-radius);
+    padding:20px 22px;box-shadow:0 4px 14px rgba(24,30,80,.05);
+    transition:transform .22s,box-shadow .22s;
+  }
+  .xk-author-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(24,30,80,.12);}
+  .xk-avatar{
+    width:66px;height:66px;border-radius:50%;overflow:hidden;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:22px;color:#fff;letter-spacing:0;
+  }
+  .xk-author-card h3{font-size:16.5px;color:var(--xk-night);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .xk-author-badge{
+    font-size:11px;font-weight:700;letter-spacing:.4px;color:var(--xk-violet-deep);
+    background:var(--xk-mist);padding:2px 8px;border-radius:999px;
+  }
+  .xk-author-field{font-size:12.5px;color:var(--xk-violet-deep);font-weight:600;margin-top:3px;}
+  .xk-author-nums{display:flex;gap:14px;margin-top:7px;font-size:12.5px;color:#7b82a3;flex-wrap:wrap;}
+  .xk-author-nums b{color:var(--xk-night);}
+  .xk-author-bio{margin-top:9px;font-size:13.5px;color:var(--xk-ink-soft);}
+  .xk-author-more{margin-top:10px;}
+
+  /* ---------- 评价：评分摘要 + 双列短评 ---------- */
+  .xk-rate-summary{
+    display:grid;grid-template-columns:190px minmax(0,1fr);gap:26px;
+    background:#fff;border:1px solid var(--xk-line);border-radius:var(--xk-radius);
+    padding:26px;box-shadow:var(--xk-shadow);margin-bottom:24px;align-items:center;
+  }
+  .xk-rate-score{text-align:center;}
+  .xk-rate-score .xk-num{font-size:46px;font-weight:800;color:var(--xk-night);line-height:1;}
+  .xk-rate-score .xk-stars{color:var(--xk-star);font-size:17px;letter-spacing:2px;margin-top:6px;}
+  .xk-rate-score .xk-rate-label{font-size:12.5px;color:#7b82a3;margin-top:6px;}
+  .xk-rate-bars{display:flex;flex-direction:column;gap:9px;}
+  .xk-rate-bar{display:grid;grid-template-columns:52px minmax(0,1fr) 44px;gap:10px;align-items:center;font-size:12.5px;color:#7b82a3;}
+  .xk-bar-track{height:7px;background:#eef0fa;border-radius:999px;overflow:hidden;}
+  .xk-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--xk-violet),var(--xk-teal));}
+  .xk-review-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+  .xk-review{
+    background:#fff;border:1px solid var(--xk-line);border-radius:14px;
+    padding:18px 20px;box-shadow:0 3px 12px rgba(24,30,80,.05);
+  }
+  .xk-review-head{display:flex;align-items:center;gap:11px;margin-bottom:9px;}
+  .xk-review-avatar{
+    width:36px;height:36px;border-radius:50%;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:700;font-size:14px;
+  }
+  .xk-review-head h4{font-size:14px;color:var(--xk-night);}
+  .xk-review-head span{font-size:11.5px;color:#8d94b3;}
+  .xk-review-stars{color:var(--xk-star);font-size:12.5px;letter-spacing:1px;margin-left:auto;flex:none;}
+  .xk-review p{font-size:13.5px;color:var(--xk-ink-soft);}
+
+  /* ---------- 企业动态 ---------- */
+  .xk-news-list{display:flex;flex-direction:column;gap:0;background:#fff;border:1px solid var(--xk-line);border-radius:var(--xk-radius);overflow:hidden;box-shadow:var(--xk-shadow);}
+  .xk-news-item{
+    display:grid;grid-template-columns:110px minmax(0,1fr);gap:20px;
+    padding:19px 24px;border-bottom:1px solid #edf0fa;align-items:start;
+  }
+  .xk-news-item:last-child{border-bottom:none;}
+  .xk-news-date{font-size:12.5px;font-weight:700;color:var(--xk-violet-deep);letter-spacing:.4px;}
+  .xk-news-item h3{font-size:15.5px;color:var(--xk-night);margin-bottom:5px;}
+  .xk-news-item p{font-size:13.5px;color:var(--xk-ink-soft);}
+  .xk-news-tag{
+    display:inline-block;margin-top:7px;font-size:11.5px;font-weight:600;
+    color:#1a7c76;background:rgba(87,198,191,.14);padding:2px 9px;border-radius:999px;
+  }
+
+  /* ---------- 合作墙 + FAQ ---------- */
+  .xk-aux-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:38px;align-items:start;}
+  .xk-partner-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .xk-partner{
+    background:#fff;border:1px solid var(--xk-line);border-radius:12px;
+    padding:15px 16px;display:flex;align-items:center;gap:11px;
+    transition:.2s;
+  }
+  .xk-partner:hover{border-color:#c3caf0;box-shadow:0 8px 20px rgba(24,30,80,.09);}
+  .xk-partner-dot{
+    width:34px;height:34px;border-radius:10px;flex:none;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:14px;color:#fff;
+  }
+  .xk-partner-name{font-size:13.5px;font-weight:600;color:var(--xk-night);line-height:1.3;}
+  .xk-partner-sub{font-size:11.5px;color:#8d94b3;}
+
+  .xk-faq-list{display:flex;flex-direction:column;gap:11px;}
+  .xk-faq{
+    background:#fff;border:1px solid var(--xk-line);border-radius:12px;overflow:hidden;
+    transition:border-color .2s;
+  }
+  .xk-faq[open]{border-color:#c3caf0;box-shadow:0 8px 22px rgba(24,30,80,.08);}
+  .xk-faq summary{
+    list-style:none;cursor:pointer;padding:15px 50px 15px 20px;
+    font-size:14.5px;font-weight:600;color:var(--xk-night);position:relative;
+  }
+  .xk-faq summary::-webkit-details-marker{display:none;}
+  .xk-faq summary::after{
+    content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);
+    font-size:20px;font-weight:500;color:var(--xk-violet-deep);transition:transform .2s;
+  }
+  .xk-faq[open] summary::after{content:"−";}
+  .xk-faq p{padding:0 20px 17px;font-size:13.5px;color:var(--xk-ink-soft);}
+
+  /* ---------- 投稿 CTA ---------- */
+  .xk-cta{
+    background:
+      radial-gradient(700px 320px at 88% 0%, rgba(245,200,107,.22), transparent 60%),
+      linear-gradient(140deg,#141a45,#2a2470 60%,#3b2a86);
+    color:#e8ebff;border-radius:22px;padding:44px 44px;
+    display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);
+    gap:32px;align-items:center;box-shadow:var(--xk-shadow-deep);
+  }
+  .xk-cta h2{font-size:clamp(22px,2.5vw,30px);color:#fff;}
+  .xk-cta h2 em{font-style:normal;color:var(--xk-star);}
+  .xk-cta p{margin-top:13px;font-size:14.5px;color:#bcc3ee;max-width:36em;}
+  .xk-cta-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;}
+
+  /* ---------- 页脚 ---------- */
+  .xk-footer{background:#0b1030;color:#a9b1dd;padding:52px 0 0;font-size:13.5px;}
+  .xk-footer-grid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,.72fr));gap:34px;}
+  .xk-footer h4{font-size:13.5px;color:#fff;letter-spacing:.6px;margin-bottom:14px;}
+  .xk-footer-brand{display:flex;align-items:center;gap:11px;margin-bottom:15px;}
+  .xk-footer-brand .xk-brand-name{color:#fff;font-size:16.5px;}
+  .xk-footer-brand .xk-brand-sub{color:#8d95c4;}
+  .xk-footer p{font-size:13px;line-height:1.85;}
+  .xk-footer-link{
+    display:block;padding:4px 0;font-size:13px;color:#a9b1dd;transition:.18s;
+  }
+  .xk-footer-link:hover{color:var(--xk-star-soft);}
+  .xk-footer-bottom{
+    margin-top:38px;border-top:1px solid rgba(180,192,255,.14);
+    padding:18px 0 26px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-size:12.5px;color:#7d85b8;
+  }
+  .xk-footer-bottom a{color:#a9b1dd;}
+  .xk-footer-bottom a:hover{color:var(--xk-star-soft);}
+
+  /* ---------- 回到顶部 + Toast ---------- */
+  .xk-to-top{
+    position:fixed;right:24px;bottom:26px;z-index:75;
+    width:46px;height:46px;border-radius:50%;
+    background:linear-gradient(135deg,var(--xk-violet-deep),#7a4fe0);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 26px rgba(70,60,200,.42);font-size:19px;
+    opacity:0;visibility:hidden;transform:translateY(10px);transition:.24s;
+  }
+  .xk-to-top.is-on{opacity:1;visibility:visible;transform:translateY(0);}
+  .xk-toast{
+    position:fixed;left:50%;bottom:34px;transform:translate(-50%,16px);
+    background:#141a45;color:#eef0fb;font-size:13.5px;
+    padding:11px 22px;border-radius:999px;z-index:99;
+    box-shadow:0 16px 34px rgba(10,15,50,.36);
+    opacity:0;visibility:hidden;transition:.26s;max-width:88vw;text-align:center;
+  }
+  .xk-toast.is-on{opacity:1;visibility:visible;transform:translate(-50%,0);}
+
+  /* ---------- Modal ---------- */
+  .xk-modal{
+    position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;
+    padding:22px;background:rgba(9,13,40,.62);backdrop-filter:blur(3px);
+    opacity:0;visibility:hidden;transition:.22s;
+  }
+  .xk-modal.is-on{opacity:1;visibility:visible;}
+  .xk-modal-box{
+    background:#fff;border-radius:18px;width:min(520px,100%);
+    padding:26px;box-shadow:0 26px 60px rgba(8,12,40,.4);
+    transform:translateY(12px);transition:.22s;max-height:86vh;overflow:auto;
+  }
+  .xk-modal.is-on .xk-modal-box{transform:translateY(0);}
+  .xk-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px;}
+  .xk-modal-head h3{font-size:18px;color:var(--xk-night);}
+  .xk-modal-close{
+    width:32px;height:32px;border-radius:9px;background:var(--xk-paper);
+    display:flex;align-items:center;justify-content:center;font-size:19px;color:#7b82a3;flex:none;
+  }
+  .xk-modal-close:hover{background:var(--xk-mist);color:var(--xk-night);}
+  .xk-modal p{font-size:14px;color:var(--xk-ink-soft);margin-bottom:12px;}
+  .xk-modal textarea{
+    width:100%;min-height:96px;resize:vertical;border:1px solid var(--xk-line);
+    border-radius:11px;padding:12px;font-family:inherit;font-size:14px;color:var(--xk-ink);
+    outline:none;transition:.2s;
+  }
+  .xk-modal textarea:focus{border-color:var(--xk-violet);box-shadow:0 0 0 3px rgba(123,140,240,.16);}
+  .xk-modal-foot{display:flex;justify-content:flex-end;gap:10px;margin-top:16px;flex-wrap:wrap;}
+  .xk-share-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin-top:6px;}
+  .xk-share-btn{
+    background:var(--xk-paper);border:1px solid var(--xk-line);border-radius:11px;
+    padding:13px 8px;font-size:13px;font-weight:600;color:var(--xk-night);
+    text-align:center;transition:.18s;
+  }
+  .xk-share-btn:hover{background:var(--xk-mist);border-color:#c3caf0;color:var(--xk-violet-deep);}
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:1000px){
+    .xk-hero-grid{grid-template-columns:minmax(0,1fr);gap:34px;}
+    .xk-video-layout{grid-template-columns:minmax(0,1fr);}
+    .xk-deep{grid-template-columns:minmax(0,1fr);gap:28px;}
+    .xk-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .xk-aux-grid{grid-template-columns:minmax(0,1fr);gap:30px;}
+    .xk-cta{grid-template-columns:minmax(0,1fr);padding:34px;}
+    .xk-cta-actions{justify-content:flex-start;}
+    .xk-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .xk-rate-summary{grid-template-columns:minmax(0,1fr);}
+  }
+  @media (max-width:860px){
+    :root{--xk-sticky-h:110px;}
+    .xk-nav{
+      display:none;position:absolute;left:0;right:0;top:100%;
+      background:#fff;border-bottom:1px solid var(--xk-line);
+      padding:12px 4vw 18px;flex-direction:column;gap:2px;
+      box-shadow:0 18px 34px rgba(18,24,64,.13);
+    }
+    .xk-nav.is-open{display:flex;}
+    .xk-nav a{padding:10px 12px;}
+    .xk-header-inner{position:relative;flex-wrap:wrap;gap:12px;}
+    .xk-nav-toggle{display:flex;order:3;}
+    .xk-header-tools{order:2;margin-left:auto;}
+    .xk-search{min-width:0;width:150px;}
+    .xk-hero{padding:40px 0 48px;}
+    .xk-author-grid,.xk-review-grid{grid-template-columns:minmax(0,1fr);}
+    .xk-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;}
+    .xk-stat{padding:11px 12px;}
+    .xk-stat-num{font-size:21px;}
+  }
+  @media (max-width:640px){
+    :root{--xk-sticky-h:126px;}
+    .xk-section{padding:46px 0;}
+    .xk-topic-grid{grid-template-columns:minmax(0,1fr);}
+    .xk-footer-grid{grid-template-columns:minmax(0,1fr);gap:24px;}
+    .xk-news-item{grid-template-columns:minmax(0,1fr);gap:7px;}
+    .xk-partner-grid{grid-template-columns:minmax(0,1fr);}
+    .xk-hero-actions .xk-btn{flex:1 1 100%;}
+    .xk-announce-inner{padding:7px 0;gap:9px;}
+    .xk-hide-sm{display:none;}
+    .xk-search{width:132px;}
+    .xk-to-top{right:14px;bottom:18px;width:42px;height:42px;}
+    .xk-stats{grid-template-columns:minmax(0,1fr);}
+  }
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+
+<!-- ===== 吸顶：公告条 + 页头 ===== -->
+<div class="xk-topbar-stack">
+  <div class="xk-announce">
+    <div class="xk-wrap xk-announce-inner">
+      <span class="xk-announce-badge">官方发布</span>
+      <p class="xk-announce-text">2026 冬季星空影像大赛现已开启报名：<strong>新增「城市银河」与「深空后期」两条赛道</strong>，同步上线 4K 高清素材库第一期。</p>
+      <a class="xk-announce-link" href="#xk-cta">前往报名 ›</a>
+    </div>
+  </div>
+
+  <header class="xk-header" id="xk-top">
+    <div class="xk-wrap xk-header-inner">
+      <a class="xk-brand" href="#xk-top" aria-label="星空丶天美丶梦幻丶乌鸦 官方网站首页">
+        <svg class="xk-brand-mark" viewBox="0 0 64 64" role="img" aria-label="星空丶天美丶梦幻丶乌鸦品牌标识">
+          <rect width="64" height="64" rx="14" fill="#0d1230"/>
+          <circle cx="45" cy="19" r="7" fill="#f5c86b"/>
+          <path d="M13 47l10-17 8 12 6-9 11 21z" fill="#5b6ee8"/>
+          <path d="M13 47l10-17 8 12" fill="none" stroke="#8f9cf5" stroke-width="1.6"/>
+          <circle cx="17" cy="17" r="1.9" fill="#ffffff"/>
+          <circle cx="29" cy="25" r="1.4" fill="#ffffff"/>
+          <circle cx="52" cy="43" r="1.7" fill="#ffffff"/>
+          <circle cx="36" cy="12" r="1.2" fill="#ffe6a8"/>
+        </svg>
+        <span class="xk-brand-texts">
+          <span class="xk-brand-name">星空丶天美丶梦幻丶乌鸦</span>
+          <span class="xk-brand-sub">STARFIELD · OFFICIAL</span>
+        </span>
+      </a>
+
+      <nav class="xk-nav" id="xk-nav" aria-label="主导航">
+        <a href="#xk-video">精选影像</a>
+        <a href="#xk-parse">关键词解析</a>
+        <a href="#xk-topics">专题企划</a>
+        <a href="#xk-authors">创作者</a>
+        <a href="#xk-voice">观星者之声</a>
+        <a href="#xk-news">企业动态</a>
+        <a href="#xk-help">帮助中心</a>
+      </nav>
+
+      <div class="xk-header-tools">
+        <div class="xk-search">
+          <input id="xk-search-input" type="search" placeholder="搜索星野、深空、延时…" aria-label="站内搜索">
+          <button class="xk-search-btn" id="xk-search-go" aria-label="执行搜索">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7b82a3" stroke-width="2.2" stroke-linecap="round" role="img" aria-label="搜索图标">
+              <circle cx="10.5" cy="10.5" r="6.5"></circle>
+              <path d="M15.5 15.5L21 21"></path>
+            </svg>
+          </button>
+        </div>
+        <button class="xk-btn xk-btn-primary xk-hide-sm" id="xk-upload-open">投稿入口</button>
+        <button class="xk-nav-toggle" id="xk-nav-toggle" aria-label="展开导航菜单" aria-expanded="false" aria-controls="xk-nav">
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="xk-search-hint" id="xk-search-hint" role="status" aria-live="polite"></div>
+  </header>
+</div>
+
+<!-- ===== 首屏 ===== -->
+<section class="xk-hero" aria-labelledby="xk-hero-title">
+  <svg class="xk-hero-stars" viewBox="0 0 1400 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <radialGradient id="xkNebula" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#7b8cf0" stop-opacity=".55"/>
+        <stop offset="100%" stop-color="#7b8cf0" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="xkNebula2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#57c6bf" stop-opacity=".4"/>
+        <stop offset="100%" stop-color="#57c6bf" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <ellipse cx="1120" cy="120" rx="360" ry="230" fill="url(#xkNebula)"/>
+    <ellipse cx="210" cy="470" rx="300" ry="200" fill="url(#xkNebula2)"/>
+    <g fill="#ffffff">
+      <circle cx="120" cy="90" r="1.6" opacity=".8"/><circle cx="260" cy="180" r="1.2" opacity=".6"/>
+      <circle cx="420" cy="70" r="1.9" opacity=".85"/><circle cx="560" cy="140" r="1.1" opacity=".5"/>
+      <circle cx="700" cy="60" r="1.5" opacity=".7"/><circle cx="820" cy="190" r="1.7" opacity=".8"/>
+      <circle cx="960" cy="80" r="1.2" opacity=".55"/><circle cx="1100" cy="210" r="1.8" opacity=".8"/>
+      <circle cx="1260" cy="120" r="1.3" opacity=".6"/><circle cx="1340" cy="260" r="1.6" opacity=".7"/>
+      <circle cx="180" cy="330" r="1.4" opacity=".6"/><circle cx="360" cy="410" r="1.7" opacity=".7"/>
+      <circle cx="520" cy="330" r="1.1" opacity=".5"/><circle cx="660" cy="450" r="1.6" opacity=".65"/>
+      <circle cx="800" cy="360" r="1.2" opacity=".5"/><circle cx="980" cy="470" r="1.8" opacity=".7"/>
+      <circle cx="1140" cy="390" r="1.3" opacity=".55"/><circle cx="1300" cy="480" r="1.5" opacity=".6"/>
+      <circle cx="80" cy="520" r="1.7" opacity=".7"/><circle cx="440" cy="560" r="1.2" opacity=".5"/>
+      <circle cx="740" cy="540" r="1.5" opacity=".6"/><circle cx="1060" cy="580" r="1.3" opacity=".5"/>
+    </g>
+    <g fill="#f5c86b">
+      <circle cx="300" cy="90" r="2.4" opacity=".9"/><circle cx="880" cy="120" r="2.1" opacity=".85"/>
+      <circle cx="1240" cy="360" r="2.3" opacity=".9"/><circle cx="540" cy="500" r="2" opacity=".8"/>
+    </g>
+  </svg>
+
+  <div class="xk-wrap xk-hero-grid">
+    <div class="xk-hero-copy">
+      <span class="xk-hero-eyebrow">官方品牌门户 · 原创观星影像社区</span>
+      <h1 id="xk-hero-title">星空丶天美丶梦幻丶乌鸦：让每一次仰望都成为<em>可被收藏的影像</em></h1>
+      <p class="xk-hero-lead">作为深耕天文影像垂直领域的<strong>企业级内容平台</strong>，我们以原创、正版、高清为底线，为星空摄影创作者与天文爱好者搭建持续运营的内容生态。</p>
+      <p class="xk-hero-intro">星空丶天美丶梦幻丶乌鸦官方网站自 2019 年持续运营至今，围绕星野摄影、深空后期、城市观测与天文科普四条主线，沉淀可复用的拍摄攻略、后期教程与观测记录。平台坚持用户至上与匠心制作，所有视频素材均标注拍摄地、器材与参数，让每一帧星轨都能被验证、被学习、被延续。</p>
+
+      <div class="xk-hero-actions">
+        <a class="xk-btn xk-btn-primary" href="#xk-video">观看精选星空影像</a>
+        <a class="xk-btn xk-btn-ghost" href="#xk-authors">认识星空创作者</a>
+        <button class="xk-btn xk-btn-ghost" id="xk-share-open">分享本页</button>
+      </div>
+
+      <div class="xk-stats" aria-label="平台核心数据">
+        <div class="xk-stat">
+          <div class="xk-stat-num">3,680<small>+</small></div>
+          <div class="xk-stat-label">原创高清影像作品</div>
+        </div>
+        <div class="xk-stat">
+          <div class="xk-stat-num">41.5<small>万</small></div>
+          <div class="xk-stat-label">注册观星爱好者</div>
+        </div>
+        <div class="xk-stat">
+          <div class="xk-stat-num">98.2<small>%</small></div>
+          <div class="xk-stat-label">创作者口碑好评率</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="xk-hero-visual">
+      <div class="xk-hero-frame">
+        <svg viewBox="0 0 640 400" role="img" aria-label="乌鸦座星域与银河拱桥的高清星空摄影主视觉">
+          <defs>
+            <linearGradient id="xkSkyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#070b24"/>
+              <stop offset="46%" stop-color="#141c4e"/>
+              <stop offset="78%" stop-color="#2a2a6e"/>
+              <stop offset="100%" stop-color="#4a3b78"/>
+            </linearGradient>
+            <linearGradient id="xkMilky" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffe6a8" stop-opacity=".08"/>
+              <stop offset="42%" stop-color="#cfd6ff" stop-opacity=".42"/>
+              <stop offset="70%" stop-color="#9fb0ff" stop-opacity=".20"/>
+              <stop offset="100%" stop-color="#57c6bf" stop-opacity=".06"/>
+            </linearGradient>
+            <linearGradient id="xkGround" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0a0d24"/>
+              <stop offset="100%" stop-color="#05060f"/>
+            </linearGradient>
+            <radialGradient id="xkMoonGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f5c86b" stop-opacity=".85"/>
+              <stop offset="100%" stop-color="#f5c86b" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="640" height="400" fill="url(#xkSkyGrad)"/>
+          <path d="M-20 250 Q160 120 330 190 T680 140 L680 400 L-20 400 Z" fill="url(#xkMilky)"/>
+          <g fill="#ffffff">
+            <circle cx="70" cy="60" r="1.5" opacity=".85"/><circle cx="130" cy="110" r="1.1" opacity=".6"/>
+            <circle cx="196" cy="48" r="1.9" opacity=".9"/><circle cx="262" cy="128" r="1.2" opacity=".55"/>
+            <circle cx="330" cy="72" r="1.4" opacity=".7"/><circle cx="402" cy="140" r="1.7" opacity=".8"/>
+            <circle cx="470" cy="60" r="1.2" opacity=".55"/><circle cx="536" cy="118" r="1.8" opacity=".82"/>
+            <circle cx="596" cy="56" r="1.3" opacity=".6"/><circle cx="430" cy="215" r="1.5" opacity=".7"/>
+            <circle cx="288" cy="240" r="1.2" opacity=".5"/><circle cx="152" cy="205" r="1.6" opacity=".65"/>
+            <circle cx="60" cy="300" r="1.3" opacity=".5"/><circle cx="352" cy="310" r="1.5" opacity=".6"/>
+            <circle cx="500" cy="286" r="1.2" opacity=".5"/><circle cx="612" cy="240" r="1.4" opacity=".6"/>
+          </g>
+          <g stroke="#c9d2ff" stroke-width=".9" opacity=".55">
+            <path d="M358 96 L392 132 L436 122 L446 168 L408 196"/>
+          </g>
+          <g fill="#aebcff">
+            <circle cx="358" cy="96" r="2.6"/><circle cx="392" cy="132" r="2.2"/>
+            <circle cx="436" cy="122" r="2"/><circle cx="446" cy="168" r="2.4"/>
+            <circle cx="408" cy="196" r="1.9"/>
+          </g>
+          <text x="462" y="184" fill="#c9d2ff" font-size="11" font-family="sans-serif" opacity=".8">乌鸦座</text>
+          <circle cx="130" cy="92" r="42" fill="url(#xkMoonGlow)"/>
+          <circle cx="130" cy="92" r="17" fill="#f5c86b"/>
+          <circle cx="124" cy="86" r="3.2" fill="#e0b45a" opacity=".7"/>
+          <circle cx="136" cy="98" r="2.2" fill="#e0b45a" opacity=".6"/>
+          <path d="M0 320 L120 288 L220 306 L330 276 L440 300 L560 286 L640 306 L640 400 L0 400 Z" fill="url(#xkGround)"/>
+          <g fill="#070a1c">
+            <path d="M470 320 l10-26 10 26z"/>
+            <path d="M492 322 l7-18 7 18z"/>
+            <path d="M510 318 l12-30 12 30z"/>
+            <path d="M86 316 l9-22 9 22z"/>
+          </g>
+          <g stroke="#f5c86b" stroke-width="1.2" opacity=".8" fill="none">
+            <path d="M318 320 l0 34 M300 328 l36 0"/>
+          </g>
+          <text x="292" y="376" fill="#ffe6a8" font-size="10.5" font-family="sans-serif" opacity=".9">银河拱桥 · 单张 20s · f/2.8</text>
+        </svg>
+      </div>
+      <div class="xk-hero-caption">
+        <span>主视觉：<b>乌鸦座与银河拱桥</b>　海拔 3,860m 观测点实拍</span>
+        <span>4K · 原创正版</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 精选影像：一幅重点大图 + 文字列表 ===== -->
+<section class="xk-section xk-section-alt" id="xk-video" aria-labelledby="xk-video-title">
+  <div class="xk-wrap">
+    <div class="xk-sec-head">
+      <span class="xk-sec-kicker">精选影像</span>
+      <h2 id="xk-video-title">本周重点推荐：<em>星空影像</em>与观星现场</h2>
+      <p class="xk-sec-desc">每一条作品都附带拍摄地、器材、参数与后期思路。我们相信真实可复现的经验，才是星空影像社区最值得信赖的资产。</p>
+    </div>
+
+    <div class="xk-video-layout">
+      <!-- 重点大图 -->
+      <article class="xk-feature-card">
+        <div class="xk-feature-media">
+          <svg viewBox="0 0 640 360" role="img" aria-label="冬季银河横贯雪原与越野车灯轨的星空延时摄影封面">
+            <defs>
+              <linearGradient id="xkFeatSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#050818"/>
+                <stop offset="55%" stop-color="#101a4c"/>
+                <stop offset="100%" stop-color="#3a3374"/>
+              </linearGradient>
+              <linearGradient id="xkFeatBand" x1="0" y1="0" x2="1" y2=".6">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity=".06"/>
+                <stop offset="40%" stop-color="#d8e0ff" stop-opacity=".38"/>
+                <stop offset="72%" stop-color="#8fa2ff" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#ffffff" stop-opacity=".03"/>
+              </linearGradient>
+              <linearGradient id="xkFeatSnow" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#dfe6ff"/>
+                <stop offset="100%" stop-color="#7c88c8"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="url(#xkFeatSky)"/>
+            <path d="M-30 200 Q140 60 330 130 T680 96 L680 360 L-30 360 Z" fill="url(#xkFeatBand)"/>
+            <g fill="#ffffff">
+              <circle cx="56" cy="44" r="1.4" opacity=".85"/><circle cx="118" cy="96" r="1.1" opacity=".6"/>
+              <circle cx="188" cy="38" r="1.7" opacity=".85"/><circle cx="256" cy="104" r="1.2" opacity=".55"/>
+              <circle cx="330" cy="52" r="1.4" opacity=".7"/><circle cx="400" cy="118" r="1.6" opacity=".8"/>
+              <circle cx="470" cy="46" r="1.1" opacity=".5"/><circle cx="540" cy="100" r="1.7" opacity=".8"/>
+              <circle cx="606" cy="40" r="1.2" opacity=".55"/><circle cx="120" cy="160" r="1.3" opacity=".6"/>
+              <circle cx="288" cy="170" r="1.5" opacity=".65"/><circle cx="452" cy="156" r="1.2" opacity=".5"/>
+              <circle cx="572" cy="186" r="1.4" opacity=".6"/>
+            </g>
+            <path d="M0 246 L96 222 L182 240 L268 214 L360 244 L470 226 L560 246 L640 230 L640 360 L0 360 Z" fill="url(#xkFeatSnow)" opacity=".92"/>
+            <path d="M0 268 L120 254 L236 272 L370 252 L500 274 L640 258 L640 360 L0 360 Z" fill="#141a3c" opacity=".9"/>
+            <path d="M60 344 Q170 300 300 320 T600 300" stroke="#ffd9a0" stroke-width="2.4" fill="none" opacity=".9"/>
+            <path d="M60 344 Q170 300 300 320 T600 300" stroke="#f5c86b" stroke-width="6" fill="none" opacity=".14"/>
+            <g fill="#070b1e">
+              <path d="M126 262 l8-20 8 20z"/>
+              <path d="M148 264 l6-15 6 15z"/>
+            </g>
+            <text x="24" y="332" fill="#ffe6a8" font-size="11" font-family="sans-serif" opacity=".9">冬季银河 · 240 帧延时</text>
+          </svg>
+          <span class="xk-play-badge" aria-hidden="true"></span>
+        </div>
+        <div class="xk-feature-body">
+          <div class="xk-tag-row">
+            <span class="xk-tag xk-tag-star">本周焦点</span>
+            <span class="xk-tag">延时摄影</span>
+            <span class="xk-tag xk-tag-teal">4K 高清</span>
+          </div>
+          <h3>《雪原之上，冬季银河的 240 帧呼吸》</h3>
+          <p>在海拔 3,860 米的无人区守候三个夜晚，只为捕捉银河从山脊升起的 46 分钟。视频同步拆解了赤道仪极轴校准、暗场与偏置场采集、以及降噪不糊星的后期取舍——这是一次完整的星空摄影实战记录，也是平台精品内容中回看率最高的作品之一。</p>
+          <div class="xk-meta-row">
+            <span>创作者 <b>乌鸦座观测所</b></span>
+            <span>播放 <b class="xk-play-num">86,240</b></span>
+            <span>点赞 <b class="xk-like-num">5,318</b></span>
+            <span>收藏 <b class="xk-save-num">2,906</b></span>
+          </div>
+          <div class="xk-actions">
+            <button class="xk-act" data-xk-like title="点赞这条作品">♡ 点赞</button>
+            <button class="xk-act" data-xk-save title="收藏这条作品">收藏</button>
+            <button class="xk-act" data-xk-comment="《雪原之上，冬季银河的 240 帧呼吸》" title="展开评论">评论</button>
+            <button class="xk-act" data-xk-copy title="复制作品链接">复制链接</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 文字列表 -->
+      <div class="xk-text-list" aria-label="更多星空视频条目">
+        <div class="xk-text-item">
+          <span class="xk-rank">02</span>
+          <div>
+            <h3>城市里的第一颗星：光污染地图实用攻略</h3>
+            <p>用公开光污染数据叠加本地天气窗口，实测城市近郊 5 个可拍点位，含地铁末班车与停车场信息。</p>
+            <div class="xk-item-foot">
+              <span>作者 天美夜行</span><span>播放 41,860</span>
+              <button class="xk-mini-act" data-xk-like>♡ 1,204</button>
+              <button class="xk-mini-act" data-xk-comment="城市里的第一颗星：光污染地图实用攻略">评论</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="xk-text-item">
+          <span class="xk-rank">03</span>
+          <div>
+            <h3>28mm 也能拍深空？梦幻镜语的低成本方案</h3>
+            <p>从广角到 200mm 的取舍逻辑，搭配入门赤道仪的实际成片对比，附完整参数表与预算清单。</p>
+            <div class="xk-item-foot">
+              <span>作者 梦幻镜语</span><span>播放 33,512</span>
+              <button class="xk-mini-act" data-xk-like>♡ 986</button>
+              <button class="xk-mini-act" data-xk-save>收藏</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="xk-text-item">
+          <span class="xk-rank">04</span>
+          <div>
+            <h3>星轨堆栈的三种思路：从 60 张到 600 张</h3>
+            <p>对比最大值堆栈、变亮堆栈与平均值堆栈的噪点表现，讲清楚什么场景该用哪一种。</p>
+            <div class="xk-item-foot">
+              <span>作者 星野乌鸦</span><span>播放 27,904</span>
+              <button class="xk-mini-act" data-xk-comment="星轨堆栈的三种思路：从 60 张到 600 张">评论</button>
+              <button class="xk-mini-act" data-xk-copy>复制链接</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="xk-text-item">
+          <span class="xk-rank">05</span>
+          <div>
+            <h3>银河拱桥接片全流程：从 ACR 到蒙版融合</h3>
+            <p>一套完整的接片工作流，重点解决天光渐变、色温断层与边缘拉伸三个最常见的问题。</p>
+            <div class="xk-item-foot">
+              <span>作者 天美夜行</span><span>播放 22,386</span>
+              <button class="xk-mini-act" data-xk-like>♡ 712</button>
+              <button class="xk-mini-act" data-xk-comment="银河拱桥接片全流程：从 ACR 到蒙版融合">评论</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="xk-text-item">
+          <span class="xk-rank">06</span>
+          <div>
+            <h3>观星带什么：一份 12 件装备的清单化攻略</h3>
+            <p>按季节、气温与观测时长分级，标注每件装备的真实必要性，拒绝无用装备堆砌。</p>
+            <div class="xk-item-foot">
+              <span>作者 乌鸦座观测所</span><span>播放 19,470</span>
+              <button class="xk-mini-act" data-xk-save>收藏</button>
+              <button class="xk-mini-act" data-xk-copy>复制链接</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 关键词解析（深度长文 ≥800 字） ===== -->
+<section class="xk-section" id="xk-parse" aria-labelledby="xk-parse-title">
+  <div class="xk-wrap">
+    <div class="xk-sec-head">
+      <span class="xk-sec-kicker">关键词解析</span>
+      <h2 id="xk-parse-title">读懂「星空丶天美丶梦幻丶乌鸦」的<em>四重含义</em></h2>
+      <p class="xk-sec-desc">这个关键词并不是四个无关词汇的拼接，而是平台从内容结构、审美取向到社区气质的完整命名逻辑。以下从四个维度逐层拆解，帮助你理解我们为什么这样构建一个星空影像品牌。</p>
+    </div>
+
+    <div class="xk-deep">
+      <div class="xk-deep-body">
+        <h3>一、星空：内容母题与观测方法论</h3>
+        <p>「星空」是平台的第一关键词，也是最直接的内容母题。我们并不满足于把星空当作一张好看的照片，而是把它当作一套可以被拆解、被复现、被讨论的观测方法论。在平台的内容体系里，任何一条星空视频都必须回答四个问题：拍摄地在哪、观测窗口有多长、使用的器材与参数是什么、后期经过哪些步骤。只有这四项信息完整，作品才会被归入「精品内容」库。</p>
+        <p>围绕这个母题，平台长期深耕三条内容线。第一条是<strong>星野摄影</strong>，从广角银河到星轨堆栈，强调现场判断与器材适配；第二条是<strong>深空摄影</strong>，聚焦赤道仪校准、导星精度与多波段合成，门槛更高但用户黏性极强；第三条是<strong>城市观测</strong>，专门服务光污染严重地区的爱好者，用有限条件换取最大画面质量。三条线互为补充，让不同阶段的观星者都能在平台找到对味的入口。</p>
+        <p>为了让内容真实可信，平台要求所有作品标注拍摄地海拔、当晚云量、月相与光污染等级，并鼓励创作者上传原始参数截图。这样的规范看似繁琐，却让社区形成了「先验证再点赞」的氛围：评论区的讨论常常围绕一张照片背后的 30 张废片展开，而不是停留在「好看」两个字上。这正是我们理解的真实——影像可以梦幻，但方法必须诚实。</p>
+
+        <h3>二、天美：审美取向与后期标准</h3>
+        <p>「天美」在关键词中承担的是审美取向。天文影像最容易陷入两个极端：一种是过度拉饱和、把星空修成高饱和渐变海报；另一种是原片直出、以「真实」为名放弃表达。平台选择第三条路——<strong>天美</strong>，即在尊重天体颜色与亮度关系的前提下，通过克制的色阶与曲线调整，让画面既准确又耐看。</p>
+        <p>我们将这套标准总结为「三不三要」：不篡改星点颜色、不凭空添加不存在的星云、不把银河拉成霓虹色带；要保留暗部细节、要维持天光渐变的连续性、要让前景与星空拥有统一的色温逻辑。为了让标准可执行，平台在教程区提供了多套可下载的后期工程模板，涵盖 Lightroom 基础调色、Photoshop 蒙版融合与 PixInsight 深空流程，每一套都附带原始 RAW 样本，供创作者对照练习。</p>
+        <p>这套审美标准也影响了平台的视觉设计。官方网站采用深空蓝作为主色，辅以星芒金与银河青作为点缀，界面的层级关系模仿真实的星等亮度：越重要的内容越亮，越次要的信息越暗。我们希望用户即便只是浏览页面，也能感受到天美所代表的那种「精确的浪漫」。值得信赖的口碑，往往就建立在这种一致性上。</p>
+
+        <h3>三、梦幻：影像表达与情感出口</h3>
+        <p>「梦幻」是平台的情感层。星空之所以动人，不只是因为它遥远，更因为它提供了一个与现实暂时拉开距离的出口。我们观察到，平台播放量最高的作品往往不是技术最复杂的，而是那些带着具体情绪的作品：某个加班到深夜的人第一次在阳台拍到猎户座；一对异地恋人在不同城市同一时刻拍下同一片天；一位父亲带着孩子在郊外等待流星雨，最终只拍到一颗，却依然认真剪辑成三分钟的视频。</p>
+        <p>这些内容构成了平台的<strong>情感故事</strong>板块。我们不追求视觉上的极致堆砌，而是鼓励创作者把「为什么拍」讲清楚。为此，平台专门设置了「一分钟讲述」环节：在每条视频开头，创作者用不超过 60 秒说明自己的拍摄动机，可以是兴奋、疲惫、遗憾或平静。这个设计让影像从「作品」变成「记录」，也让观星社区拥有了温度。</p>
+        <p>梦幻并不等于虚假。恰恰相反，越是情绪化的表达，越需要扎实的技术支撑，否则画面会先于情绪崩塌。因此在内容审核中，平台会对「情绪强但技术弱」的作品给出具体的改进建议，而不是简单下架。我们相信包容与成长是同一个过程的两个侧面：让创作者被看见，也让他们被推动。</p>
+
+        <h3>四、乌鸦：品牌符号与社区身份</h3>
+        <p>「乌鸦」是这个关键词里最具辨识度的部分。它既是一个星座名——乌鸦座位于长蛇座与巨爵座之间，是春季星空中一块不算显眼却极易辨认的区域；也是一个品牌符号——黑色、安静、长情，习惯在夜间活动。我们选择乌鸦作为品牌名，正是因为它与观星者的状态高度重合：多数观星行为发生在深夜，参与者少而专注，彼此之间靠一种近乎默契的方式连接。</p>
+        <p>在社区运营上，乌鸦的身份被具象化为「乌鸦观测所」这一官方内容账号，以及一套统一的创作者徽章体系。新加入的创作者会获得「夜行者」徽章，完成首次规范投稿后升级为「寻星者」，持续产出高质量内容则可获得「守夜人」认证。徽章不代表排名，只记录参与：我们更在意一个人是否持续观测、是否愿意分享失败经验，而不是他的粉丝数量。</p>
+        <p>基于这一符号，平台逐步构建起自己的<strong>内容生态</strong>：每月一次的「乌鸦之约」线上观测活动，固定在同一晚进行，参与者上传同一时段的星空照片，最终由平台合成一张覆盖多个城市的拼图；每季度一次的「深空挑战」，发布统一目标天体，鼓励创作者用不同器材完成拍摄并公开参数。这些活动不设高额奖励，却形成了稳定的参与节奏，也解释了为什么平台能在没有大规模投放的情况下持续运营至今。</p>
+        <p>综合来看，星空丶天美丶梦幻丶乌鸦这四个词共同定义了一个完整品牌：以星空为内容内核，以天美为审美标准，以梦幻为情感表达，以乌鸦为社区身份。它们不是并列的标签，而是一条从技术到情感、从个人到群体的完整链路。也正因如此，平台在行业观察者眼中更像一个长期主义的样本——不追逐短期热点，专注把一件事做深，让专业与温度同时成立。</p>
+      </div>
+
+      <aside>
+        <div class="xk-side-card">
+          <h4>平台内容主线</h4>
+          <ul>
+            <li>星野摄影：广角银河、星轨、拱桥接片</li>
+            <li>深空摄影：导星、校准、多波段合成</li>
+            <li>城市观测：光污染应对与近郊点位</li>
+            <li>天文科普：节气星象、观测窗口解读</li>
+          </ul>
+        </div>
+        <div class="xk-side-card">
+          <h4>创作者徽章体系</h4>
+          <ul>
+            <li>夜行者：完成注册与首条规范投稿</li>
+            <li>寻星者：连续三个月有高清作品发布</li>
+            <li>守夜人：参与季度挑战并通过技术审核</li>
+          </ul>
+        </div>
+        <div class="xk-quote">
+          <p>「我们不做最亮的星空，只做最诚实的那一张。因为星空影像的价值，在于它能被后人复现。」</p>
+          <cite>—— 星空丶天美丶梦幻丶乌鸦 内容团队</cite>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 专题企划：三列 ===== -->
+<section class="xk-section xk-section-tint" id="xk-topics" aria-labelledby="xk-topics-title">
+  <div class="xk-wrap">
+    <div class="xk-sec-head">
+      <span class="xk-sec-kicker">专题企划</span>
+      <h2 id="xk-topics-title">正在进行的三组<em>星空企划</em></h2>
+      <p class="xk-sec-desc">专题是平台组织内容的方式：围绕一个可执行的目标，把教程、现场记录与后期复盘串成完整链路。所有专题持续更新，欢迎参与挑战与投稿。</p>
+    </div>
+
+    <div class="xk-topic-grid">
+      <article class="xk-topic-card">
+        <div class="xk-topic-media">
+          <svg viewBox="0 0 400 225" role="img" aria-label="城市楼宇天际线与稀疏星点组成的城市银河专题封面">
+            <defs>
+              <linearGradient id="xkCitySky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0a0f2b"/>
+                <stop offset="62%" stop-color="#25306b"/>
+                <stop offset="100%" stop-color="#4b4a86"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="225" fill="url(#xkCitySky)"/>
+            <g fill="#ffffff">
+              <circle cx="40" cy="30" r="1.2" opacity=".7"/><circle cx="96" cy="58" r="1" opacity=".5"/>
+              <circle cx="158" cy="26" r="1.4" opacity=".75"/><circle cx="220" cy="62" r="1" opacity=".5"/>
+              <circle cx="286" cy="34" r="1.3" opacity=".7"/><circle cx="348" cy="66" r="1.1" opacity=".55"/>
+            </g>
+            <g fill="#0c1130">
+              <rect x="10" y="140" width="46" height="85"/>
+              <rect x="64" y="118" width="34" height="107"/>
+              <rect x="106" y="152" width="52" height="73"/>
+              <rect x="166" y="126" width="38" height="99"/>
+              <rect x="212" y="106" width="46" height="119"/>
+              <rect x="266" y="146" width="40" height="79"/>
+              <rect x="314" y="128" width="52" height="97"/>
+            </g>
+            <g fill="#f5c86b" opacity=".85">
+              <rect x="72" y="132" width="5" height="5"/><rect x="84" y="148" width="5" height="5"/>
+              <rect x="176" y="140" width="5" height="5"/><rect x="224" y="122" width="5" height="5"/>
+              <rect x="238" y="144" width="5" height="5"/><rect x="326" y="142" width="5" height="5"/>
+              <rect x="344" y="164" width="5" height="5"/>
+            </g>
+            <path d="M0 190 L120 178 L240 194 L400 180 L400 225 L0 225 Z" fill="#070b20"/>
+            <text x="18" y="214" fill="#ffe6a8" font-size="10" font-family="sans-serif" opacity=".9">城市银河 · 第 04 期</text>
+          </svg>
+        </div>
+        <div class="xk-topic-body">
+          <h3>城市银河计划</h3>
+          <p>为光污染地区的观星者设计的专题：如何在有限条件下拍到可用的银河，包含点位筛选、叠加降噪与色彩还原。</p>
+          <span class="xk-topic-status">更新中 · 已更新 12 期</span>
+          <ul class="xk-topic-items">
+            <li>近郊点位光污染实测与交通攻略</li>
+            <li>短曝光多帧叠加的降噪参数对照</li>
+            <li>城市天光下的白平衡校准方法</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="xk-topic-card">
+        <div class="xk-topic-media">
+          <svg viewBox="0 0 400 225" role="img" aria-label="螺旋星系与导星镜筒构成的深空后期专题封面">
+            <defs>
+              <radialGradient id="xkGalaxy" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffe6a8" stop-opacity=".95"/>
+                <stop offset="30%" stop-color="#cfd6ff" stop-opacity=".55"/>
+                <stop offset="72%" stop-color="#6a7be8" stop-opacity=".26"/>
+                <stop offset="100%" stop-color="#6a7be8" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="400" height="225" fill="#070b24"/>
+            <g transform="translate(196 108)">
+              <ellipse rx="96" ry="96" fill="url(#xkGalaxy)"/>
+              <g fill="none" stroke="#cfd6ff" stroke-opacity=".6">
+                <ellipse rx="58" ry="24" stroke-width="3" transform="rotate(-24)"/>
+                <ellipse rx="40" ry="15" stroke-width="2" transform="rotate(-24)"/>
+              </g>
+              <circle r="9" fill="#ffe6a8"/>
+            </g>
+            <g fill="#ffffff">
+              <circle cx="34" cy="34" r="1.3" opacity=".7"/><circle cx="86" cy="76" r="1" opacity=".5"/>
+              <circle cx="330" cy="48" r="1.4" opacity=".7"/><circle cx="364" cy="120" r="1.1" opacity=".55"/>
+              <circle cx="62" cy="188" r="1.2" opacity=".6"/><circle cx="318" cy="192" r="1.3" opacity=".6"/>
+            </g>
+            <g fill="#0b1030" stroke="#7b8cf0" stroke-opacity=".6">
+              <rect x="22" y="150" width="60" height="15" rx="7"/>
+              <rect x="296" y="196" width="76" height="12" rx="6"/>
+            </g>
+            <text x="18" y="214" fill="#c9d2ff" font-size="10" font-family="sans-serif" opacity=".9">深空后期 · 导星 × 多波段</text>
+          </svg>
+        </div>
+        <div class="xk-topic-body">
+          <h3>深空后期实验室</h3>
+          <p>面对导星曲线、暗场校准与多波段合成的硬核专题。每一期都用同一天体目标，比较不同流程的成片差异。</p>
+          <span class="xk-topic-status">更新中 · 已更新 8 期</span>
+          <ul class="xk-topic-items">
+            <li>PixInsight 预处理全流程拆解</li>
+            <li>导星精度不足时的补救与取舍</li>
+            <li>窄带与宽带合成的色彩平衡对比</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="xk-topic-card">
+        <div class="xk-topic-media">
+          <svg viewBox="0 0 400 225" role="img" aria-label="帐篷与银河下的观星者剪影构成的一夜观星专题封面">
+            <defs>
+              <linearGradient id="xkNightsky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#050818"/>
+                <stop offset="60%" stop-color="#1b2657"/>
+                <stop offset="100%" stop-color="#4a3a70"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="225" fill="url(#xkNightsky)"/>
+            <g fill="#ffffff">
+              <circle cx="52" cy="34" r="1.2" opacity=".7"/><circle cx="124" cy="52" r="1" opacity=".5"/>
+              <circle cx="196" cy="26" r="1.4" opacity=".75"/><circle cx="268" cy="58" r="1.1" opacity=".55"/>
+              <circle cx="336" cy="30" r="1.3" opacity=".7"/><circle cx="372" cy="86" r="1" opacity=".5"/>
+              <circle cx="86" cy="102" r="1.2" opacity=".6"/><circle cx="302" cy="112" r="1.1" opacity=".55"/>
+            </g>
+            <path d="M-10 148 Q90 108 200 138 T410 120 L410 225 L-10 225 Z" fill="#0a0e26"/>
+            <g>
+              <path d="M152 182 l30-42 30 42z" fill="#3b3568"/>
+              <path d="M152 182 l30-42v42z" fill="#2a2550"/>
+              <path d="M182 140 l0 42" stroke="#ffe6a8" stroke-width="1.4" opacity=".7"/>
+              <circle cx="182" cy="170" r="5" fill="#f5c86b"/>
+            </g>
+            <g fill="#070b1e">
+              <path d="M240 176 l7-14 7 14z"/>
+              <path d="M258 178 l5-10 5 10z"/>
+            </g>
+            <path d="M0 196 L110 188 L240 200 L400 190 L400 225 L0 225 Z" fill="#05070f"/>
+            <text x="18" y="214" fill="#ffe6a8" font-size="10" font-family="sans-serif" opacity=".9">一夜观星 · 24 小时记录</text>
+          </svg>
+        </div>
+        <div class="xk-topic-body">
+          <h3>一夜观星记录</h3>
+          <p>从出发、搭建、守候到收工的完整 24 小时记录，强调现场决策与真实体验，适合刚入门的观星者参考。</p>
+          <span class="xk-topic-status">更新中 · 已更新 15 期</span>
+          <ul class="xk-topic-items">
+            <li>冬季高海拔保暖与器材防结露</li>
+            <li>出发前 72 小时的天气窗口判断</li>
+            <li>凌晨转场的拍摄节奏与体力分配</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 创作者矩阵：双列简介 ===== -->
+<section class="xk-section xk-section-alt" id="xk-authors" aria-labelledby="xk-authors-title">
+  <div class="xk-wrap">
+    <div class="xk-sec-head">
+      <span class="xk-sec-kicker">创作者矩阵</span>
+      <h2 id="xk-authors-title">星空影像背后的<em>五位创作者</em></h2>
+      <p class="xk-sec-desc">他们来自不同城市、不同背景，却共享同一套技术标准与表达方式。点击卡片可查看更完整的创作者档案与代表作品。</p>
+    </div>
+
+    <div class="xk-author-grid">
+      <article class="xk-author-card">
+        <div class="xk-avatar" style="background:linear-gradient(135deg,#3b3f9e,#7b8cf0);" aria-hidden="true">乌</div>
+        <div>
+          <h3>乌鸦座观测所 <span class="xk-author-badge">守夜人</span></h3>
+          <div class="xk-author-field">星野摄影 · 高海拔观测</div>
+          <div class="xk-author-nums"><span>作品 <b>216</b></span><span>粉丝 <b>12.8万</b></span></div>
+          <p class="xk-author-bio">常驻川西高原，专注冬季银河与星轨延时。坚持每条视频公开拍摄地、海拔与完整参数，主张用可复现的流程替代偶然的好运。近三年完成 40 余次高海拔夜拍，代表作《雪原之上》系列被多家天文机构转载。</p>
+          <div class="xk-author-more"><button class="xk-btn xk-btn-soft" data-xk-author="乌鸦座观测所" style="padding:6px 15px;font-size:13px;">查看档案</button></div>
+        </div>
+      </article>
+
+      <article class="xk-author-card">
+        <div class="xk-avatar" style="background:linear-gradient(135deg,#8a5a1c,#f5c86b);color:#3a2800;" aria-hidden="true">天</div>
+        <div>
+          <h3>天美夜行 <span class="xk-author-badge">寻星者</span></h3>
+          <div class="xk-author-field">城市观测 · 后期调色</div>
+          <div class="xk-author-nums"><span>作品 <b>178</b></span><span>粉丝 <b>9.4万</b></span></div>
+          <p class="xk-author-bio">在超大城市里寻找星空，专攻光污染条件下的拍摄与调色。擅长把「拍不到」变成「有办法拍」，其城市银河系列累计播放超过 300 万次。她认为星空摄影最大的门槛不是器材，而是愿不愿意在正确的时间出门。</p>
+          <div class="xk-author-more"><button class="xk-btn xk-btn-soft" data-xk-author="天美夜行" style="padding:6px 15px;font-size:13px;">查看档案</button></div>
+        </div>
+      </article>
+
+      <article class="xk-author-card">
+        <div class="xk-avatar" style="background:linear-gradient(135deg,#1a6e6a,#57c6bf);" aria-hidden="true">梦</div>
+        <div>
+          <h3>梦幻镜语 <span class="xk-author-badge">守夜人</span></h3>
+          <div class="xk-author-field">深空摄影 · 器材测评</div>
+          <div class="xk-author-nums"><span>作品 <b>143</b></span><span>粉丝 <b>7.6万</b></span></div>
+          <p class="xk-author-bio">从镜头结构讲到导星精度，擅长用实测数据回答器材争论。坚持自费购买设备做对比，不接受厂商送测，其测评结论被社区称为「最不怕得罪人的那一份」。近年专注入门级深空方案的可行性验证，帮助预算有限的爱好者少走弯路。</p>
+          <div class="xk-author-more"><button class="xk-btn xk-btn-soft" data-xk-author="梦幻镜语" style="padding:6px 15px;font-size:13px;">查看档案</button></div>
+        </div>
+      </article>
+
+      <article class="xk-author-card">
+        <div class="xk-avatar" style="background:linear-gradient(135deg,#4a2f86,#a06be0);" aria-hidden="true">星</div>
+        <div>
+          <h3>星野乌鸦 <span class="xk-author-badge">寻星者</span></h3>
+          <div class="xk-author-field">教程干货 · 接片流程</div>
+          <div class="xk-author-nums"><span>作品 <b>132</b></span><span>粉丝 <b>6.2万</b></span></div>
+          <p class="xk-author-bio">把复杂的后期流程拆成可照做的步骤，是星野乌鸦最擅长的事。她的接片教程以「零废话、全截图」著称，配套提供工程文件与原始素材。她说自己最喜欢收到的反馈不是夸奖，而是「照你的步骤做出来了」。目前持续更新接片与降噪两条教程线。</p>
+          <div class="xk-author-more"><button class="xk-btn xk-btn-soft" data-xk-author="星野乌鸦" style="padding:6px 15px;font-size:13px;">查看档案</button></div>
+        </div>
+      </article>
+
+      <article class="xk-author-card">
+        <div class="xk-avatar" style="background:linear-gradient(135deg,#8a2c50,#e06b96);" aria-hidden="true">夜</div>
+        <div>
+          <h3>长夜拾光 <span class="xk-author-badge">夜行者</span></h3>
+          <div class="xk-author-field">情感故事 · 观星记录</div>
+          <div class="xk-author-nums"><span>作品 <b>87</b></span><span>粉丝 <b>4.1万</b></span></div>
+          <p class="xk-author-bio">用影像记录「为什么拍」的创作者。作品常常没有惊艳的画面，却有让人看完的叙事。擅长把一次普通的观星夜写成三分钟的短片，开头六十秒永远留给真实的情绪。她相信星空的治愈力不需要修饰，只要如实记录，就已经足够温暖。</p>
+          <div class="xk-author-more"><button class="xk-btn xk-btn-soft" data-xk-author="长夜拾光" style="padding:6px 15px;font-size:13px;">查看档案</button></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 观星者之声：评分摘要 + 双列短评 ===== -->
+<section class="xk-section" id="xk-voice" aria-labelledby="xk-voice-title">
+  <div class="xk-wrap">
+    <div class="xk-sec-head">
+      <span class="xk-sec-kicker">观星者之声</span>
+      <h2 id="xk-voice-title">社区真实评价与<em>口碑反馈</em></h2>
+      <p class="xk-sec-desc">以下评价来自平台注册用户，涵盖技术学习、社区氛围、内容质量与活动体验四个维度，未做筛选与修饰。</p>
+    </div>
+
+    <div class="xk-rate-summary">
+      <div class="xk-rate-score">
+        <div class="xk-num">4.8</div>
+        <div class="xk-stars" aria-label="五星评价">★★★★★</div>
+        <div class="xk-rate-label">综合评分 · 基于 2,164 条评价</div>
+      </div>
+      <div class="xk-rate-bars">
+        <div class="xk-rate-bar"><span>内容质量</span><span class="xk-bar-track"><span class="xk-bar-fill" style="width:96%"></span></span><span>4.9</span></div>
+        <div class="xk-rate-bar"><span>技术实用</span><span class="xk-bar-track"><span class="xk-bar-fill" style="width:93%"></span></span><span>4.8</span></div>
+        <div class="xk-rate-bar"><span>社区氛围</span><span class="xk-bar-track"><span class="xk-bar-fill" style="width:90%"></span></span><span>4.7</span></div>
+        <div class="xk-rate-bar"><span>活动体验</span><span class="xk-bar-track"><span class="xk-bar-fill" style="width:88%"></span></span><span>4.6</span></div>
+      </div>
+    </div>
+
+    <div class="xk-review-grid">
+      <article class="xk-review">
+        <div class="xk-review-head">
+          <div class="xk-review-avatar" style="background:#4a5bd6;">林</div>
+          <div><h4>林间观星</h4><span>注册 14 个月</span></div>
+          <span class="xk-review-stars" aria-label="五星">★★★★★</span>
+        </div>
+        <p>跟着《雪原之上》的参数照做，第一次拍出了能看的银河。视频里连赤道仪极轴校准对了几次都写出来了，这种细节在别的地方真的看不到。</p>
+      </article>
+
+      <article class="xk-review">
+        <div class="xk-review-head">
+          <div class="xk-review-avatar" style="background:#1a7c76;">周</div>
+          <div><h4>周小北</h4><span>注册 8 个月</span></div>
+          <span class="xk-review-stars" aria-label="四星">★★★★☆</span>
+        </div>
+        <p>城市银河专题帮了大忙，我在二线城市也能拍到淡淡的银河带。唯一希望的是点位更新再快一点，有些地方已经因为施工拍不了了。</p>
+      </article>
+
+      <article class="xk-review">
+        <div class="xk-review-head">
+          <div class="xk-review-avatar" style="background:#8a6a1c;">陈</div>
+          <div><h4>陈拾光</h4><span>注册 22 个月</span></div>
+          <span class="xk-review-stars" aria-label="五星">★★★★★</span>
+        </div>
+        <p>最打动我的不是教程，是那些「拍失败了」的视频。有一次作者把三晚的废片全放出来，讲为什么失败，我看完反而更有信心继续拍下去了。</p>
+      </article>
+
+      <article class="xk-review">
+        <div class="xk-review-head">
+          <div class="xk-review-avatar" style="background:#8a2c50;">许</div>
+          <div><h4>许影</h4><span>注册 5 个月</span></div>
+          <span class="xk-review-stars" aria-label="四星">★★★★☆</span>
+        </div>
+        <p>深空后期实验室门槛确实高，前几期我跟得很吃力。但配套的素材包很良心，自己下载下来照着练一遍就懂了，建议新手从广角那条线看起。</p>
+      </article>
+
+      <article class="xk-review">
+        <div class="xk-review-head">
+          <div class="xk-review-avatar" style="background:#3b3f9e;">何</div>
+          <div><h4>何处有星</h4><span>注册 31 个月</span></div>
+          <span class="xk-review-stars" aria-label="五星">★★★★★</span>
+        </div>
+        <p>「乌鸦之约」参加了两届，同一晚全国几百个人一起拍星空的感觉很特别。合成拼图出来那天我在群里看了半小时，那种共同完成一件事的感觉很难得。</p>
+      </article>
+
+      <article class="xk-review">
+        <div class="xk-review-head">
+          <div class="xk-review-avatar" style="background:#a06be0;">郑</div>
+          <div><h4>郑夜航</h4><span>注册 11 个月</span></div>
+          <span class="xk-review-stars" aria-label="四星">★★★★☆</span>
+        </div>
+        <p>器材测评几乎没有广告味，作者自费买设备这点很加分。希望以后能加上不同价位方案的横向对比表，选购的时候会方便很多。</p>
+      </article>
+
+      <article class="xk-review">
+        <div class="xk-review-head">
+          <div class="xk-review-avatar" style="background:#2a6e8a;">苏</div>
+          <div><h4>苏晚星</h4><span>注册 3 个月</span></div>
+          <span class="xk-review-stars" aria-label="五星">★★★★★</span>
+        </div>
+        <p>作为完全的新手，我最怕看不懂术语，这里的入门视频会先把名词解释清楚再讲操作，节奏很舒服。已经照着一夜观星记录买了第一套保暖装备。</p>
+      </article>
+
+      <article class="xk-review">
+        <div class="xk-review-head">
+          <div class="xk-review-avatar" style="background:#5a4bd6;">罗</div>
+          <div><h4>罗盘与星</h4><span>注册 16 个月</span></div>
+          <span class="xk-review-stars" aria-label="四星">★★★★☆</span>
+        </div>
+        <p>内容质量一直很稳，就是希望能开放更多下载素材的权限，现在部分工程文件只对认证创作者开放，普通用户练习的机会少了一点。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 企业动态 + 合作墙 / FAQ 辅助区 ===== -->
+<section class="xk-section xk-section-tint" id="xk-news" aria-labelledby="xk-news-title">
+  <div class="xk-wrap">
+    <div class="xk-sec-head">
+      <span class="xk-sec-kicker">企业动态与支持</span>
+      <h2 id="xk-news-title">官方发布、合作伙伴与<em>常见问题</em></h2>
+      <p class="xk-sec-desc">平台坚持公开、透明的运营节奏：所有活动、规则调整与合作伙伴信息都在此同步发布，帮助社区持续了解我们的进展。</p>
+    </div>
+
+    <div class="xk-aux-grid">
+      <div>
+        <h3 style="font-size:17px;color:var(--xk-night);margin-bottom:14px;">企业动态</h3>
+        <div class="xk-news-list">
+          <div class="xk-news-item">
+            <span class="xk-news-date">2026 / 11 / 18</span>
+            <div>
+              <h3>4K 星空素材库第一期正式上线</h3>
+              <p>首批开放 320 条原创高清素材，全部标注拍摄地、器材与授权范围，供认证创作者用于二次创作。</p>
+              <span class="xk-news-tag">官方发布</span>
+            </div>
+          </div>
+          <div class="xk-news-item">
+            <span class="xk-news-date">2026 / 11 / 06</span>
+            <div>
+              <h3>冬季星空影像大赛开启报名</h3>
+              <p>新增「城市银河」与「深空后期」两条赛道，报名截止 12 月 20 日，评审由五位认证守夜人共同担任。</p>
+              <span class="xk-news-tag">比赛 · 报名</span>
+            </div>
+          </div>
+          <div class="xk-news-item">
+            <span class="xk-news-date">2026 / 10 / 24</span>
+            <div>
+              <h3>创作者徽章体系完成第三次迭代</h3>
+              <p>新增「共同观测」徽章，用于记录参与乌鸦之约线上观测活动的次数，历史参与数据已全部回溯。</p>
+              <span class="xk-news-tag">社区更新</span>
+            </div>
+          </div>
+          <div class="xk-news-item">
+            <span class="xk-news-date">2026 / 10 / 09</span>
+            <div>
+              <h3>平台投稿规范 2.0 发布</h3>
+              <p>明确要求标注拍摄地海拔、月相与光污染等级，同时对失败案例类作品开放「过程记录」投稿通道。</p>
+              <span class="xk-news-tag">规则说明</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size:17px;color:var(--xk-night);margin-bottom:14px;">合作品牌与伙伴</h3>
+        <div class="xk-partner-grid">
+          <div class="xk-partner">
+            <span class="xk-partner-dot" style="background:#4a5bd6;">光</span>
+            <span><span class="xk-partner-name">光年光学</span><br><span class="xk-partner-sub">深空镜头技术支持</span></span>
+          </div>
+          <div class="xk-partner">
+            <span class="xk-partner-dot" style="background:#1a7c76;">高</span>
+            <span><span class="xk-partner-name">高原观测站</span><br><span class="xk-partner-sub">现场点位与设备支持</span></span>
+          </div>
+          <div class="xk-partner">
+            <span class="xk-partner-dot" style="background:#8a6a1c;color:#2b2205;">星</span>
+            <span><span class="xk-partner-name">星图数据</span><br><span class="xk-partner-sub">光污染与天气数据</span></span>
+          </div>
+          <div class="xk-partner">
+            <span class="xk-partner-dot" style="background:#8a2c50;">夜</span>
+            <span><span class="xk-partner-name">夜航户外</span><br><span class="xk-partner-sub">保暖与露营装备</span></span>
+          </div>
+        </div>
+
+        <h3 id="xk-help" style="font-size:17px;color:var(--xk-night);margin:28px 0 14px;">常见问题</h3>
+        <div class="xk-faq-list">
+          <details class="xk-faq" open>
+            <summary>平台的星空影像是否都为正版原创？</summary>
+            <p>是的。所有上架视频均需通过原创声明与素材来源核验，平台会对疑似搬运内容进行人工复核。使用未授权素材的作品不会进入精选与专题。</p>
+          </details>
+          <details class="xk-faq">
+            <summary>新手没有赤道仪，能在这学到东西吗？</summary>
+            <p>完全可以。城市银河计划与一夜观星记录两条专题专为入门者设计，从固定摄影、短曝光叠加到基础调色都有分步教程，不需要高门槛设备。</p>
+          </details>
+          <details class="xk-faq">
+            <summary>如何参加冬季星空影像大赛？</summary>
+            <p>点击页面上方的投稿入口，选择对应赛道并提交作品说明与原始参数截图。每条赛道每人限投三件作品，报名截止 12 月 20 日。</p>
+          </details>
+          <details class="xk-faq">
+            <summary>后期工程文件为什么只对认证创作者开放？</summary>
+            <p>工程文件包含原始素材与完整图层，为保护创作者权益暂设权限。注册满三个月且无违规记录的用户可在个人中心申请解锁。</p>
+          </details>
+          <details class="xk-faq">
+            <summary>乌鸦之约线上观测活动如何参与？</summary>
+            <p>活动固定在每月第三个周六晚进行，参与者需在当晚上传一张标注时间与地点的星空照片。平台会在活动结束后一周内合成城市拼图并公布。</p>
+          </details>
+          <details class="xk-faq">
+            <summary>投稿被退回后还能修改重新提交吗？</summary>
+            <p>可以。退回通知中会附具体原因与修改建议，创作者可在七天内修改并重新提交，同一作品最多修改三次，不影响后续徽章评定。</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 投稿 CTA ===== -->
+<section class="xk-section" id="xk-cta" aria-labelledby="xk-cta-title">
+  <div class="xk-wrap">
+    <div class="xk-cta">
+      <div>
+        <h2 id="xk-cta-title">把你的那一夜星空，<em>交给社区收藏</em></h2>
+        <p>无论是一张成功的银河拱桥，还是一段拍失败的守夜记录，都值得被认真对待。上传作品、下载素材、报名参赛，让更多人在你的影像里找到继续仰望的理由。</p>
+      </div>
+      <div class="xk-cta-actions">
+        <button class="xk-btn xk-btn-primary" id="xk-cta-upload">立即投稿</button>
+        <button class="xk-btn xk-btn-ghost" id="xk-cta-share">分享给同好</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer class="xk-footer">
+  <div class="xk-wrap">
+    <div class="xk-footer-grid">
+      <div>
+        <div class="xk-footer-brand">
+          <svg width="38" height="38" viewBox="0 0 64 64" role="img" aria-label="星空丶天美丶梦幻丶乌鸦页脚标识">
+            <rect width="64" height="64" rx="14" fill="#141a45"/>
+            <circle cx="45" cy="19" r="7" fill="#f5c86b"/>
+            <path d="M13 47l10-17 8 12 6-9 11 21z" fill="#5b6ee8"/>
+            <circle cx="17" cy="17" r="1.9" fill="#ffffff"/>
+            <circle cx="29" cy="25" r="1.4" fill="#ffffff"/>
+            <circle cx="52" cy="43" r="1.7" fill="#ffffff"/>
+          </svg>
+          <span class="xk-brand-texts">
+            <span class="xk-brand-name">星空丶天美丶梦幻丶乌鸦</span>
+            <span class="xk-brand-sub">STARFIELD · OFFICIAL</span>
+          </span>
+        </div>
+        <p>星空丶天美丶梦幻丶乌鸦官方网站，是专注星空摄影、深空后期与天文科普的原创视频内容平台。我们以专业标准深耕垂直领域，持续运营一个真实、温暖、值得信赖的创作者社区。</p>
+        <p style="margin-top:10px;color:#8d95c4;">合作与内容授权请联系平台运营团队，工作日 48 小时内回复。</p>
+      </div>
+      <div>
+        <h4>内容</h4>
+        <a class="xk-footer-link" href="#xk-video">精选影像</a>
+        <a class="xk-footer-link" href="#xk-topics">专题企划</a>
+        <a class="xk-footer-link" href="#xk-parse">关键词解析</a>
+        <a class="xk-footer-link" href="#xk-authors">创作者矩阵</a>
+      </div>
+      <div>
+        <h4>社区</h4>
+        <a class="xk-footer-link" href="#xk-voice">观星者之声</a>
+        <a class="xk-footer-link" href="#xk-news">企业动态</a>
+        <a class="xk-footer-link" href="#xk-help">帮助中心</a>
+        <a class="xk-footer-link" href="#xk-cta">投稿入口</a>
+      </div>
+      <div>
+        <h4>关于</h4>
+        <a class="xk-footer-link" href="#xk-parse">品牌故事</a>
+        <a class="xk-footer-link" href="#xk-news">合作品牌</a>
+        <a class="xk-footer-link" href="#xk-top">回到首页</a>
+        <a class="xk-footer-link" href="#xk-cta">分享平台</a>
+      </div>
+    </div>
+
+    <div class="xk-footer-bottom">
+      <span>© 2019–2026 星空丶天美丶梦幻丶乌鸦 官方网站 · 版权所有 · 持续运营中</span>
+      <span>原创正版 · 高清内容 · 用户至上 &nbsp;|&nbsp; <a href="#xk-top">京ICP备 2026 星空影像号</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="xk-to-top" id="xk-to-top" aria-label="回到顶部">↑</button>
+<div class="xk-toast" id="xk-toast" role="status" aria-live="polite"></div>
+
+<!-- 评论弹窗 -->
+<div class="xk-modal" id="xk-modal-comment" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="xk-modal-comment-title">
+  <div class="xk-modal-box">
+    <div class="xk-modal-head">
+      <h3 id="xk-modal-comment-title">发表评论</h3>
+      <button class="xk-modal-close" data-xk-close aria-label="关闭">×</button>
+    </div>
+    <p id="xk-modal-comment-target">写下你对这条星空影像的真实想法，也可以分享自己的拍摄经验。</p>
+    <textarea id="xk-comment-text" placeholder="例如：请问赤道仪极轴校准大概需要多久？我这边总是对不准……"></textarea>
+    <div class="xk-modal-foot">
+      <button class="xk-btn xk-btn-soft" data-xk-close>取消</button>
+      <button class="xk-btn xk-btn-primary" id="xk-comment-submit">发布评论</button>
+    </div>
+  </div>
+</div>
+
+<!-- 作者弹窗 -->
+<div class="xk-modal" id="xk-modal-author" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="xk-modal-author-title">
+  <div class="xk-modal-box">
+    <div class="xk-modal-head">
+      <h3 id="xk-modal-author-title">创作者档案</h3>
+      <button class="xk-modal-close" data-xk-close aria-label="关闭">×</button>
+    </div>
+    <p id="xk-modal-author-body"></p>
+    <div class="xk-modal-foot">
+      <button class="xk-btn xk-btn-soft" data-xk-close>关闭</button>
+      <button class="xk-btn xk-btn-primary" id="xk-author-follow">关注该创作者</button>
+    </div>
+  </div>
+</div>
+
+<!-- 分享弹窗 -->
+<div class="xk-modal" id="xk-modal-share" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="xk-modal-share-title">
+  <div class="xk-modal-box">
+    <div class="xk-modal-head">
+      <h3 id="xk-modal-share-title">分享星空丶天美丶梦幻丶乌鸦</h3>
+      <button class="xk-modal-close" data-xk-close aria-label="关闭">×</button>
+    </div>
+    <p>把这份星空清单转发给同样喜欢仰望的朋友，一起参加冬季星空影像大赛。</p>
+    <div class="xk-share-row">
+      <button class="xk-share-btn" data-xk-share="微信">微信</button>
+      <button class="xk-share-btn" data-xk-share="微博">微博</button>
+      <button class="xk-share-btn" data-xk-share="QQ">QQ</button>
+    </div>
+    <div class="xk-modal-foot">
+      <button class="xk-btn xk-btn-soft" id="xk-share-copy">复制页面链接</button>
+      <button class="xk-btn xk-btn-primary" data-xk-close>完成</button>
+    </div>
+  </div>
+</div>
+
+<!-- 投稿弹窗 -->
+<div class="xk-modal" id="xk-modal-upload" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="xk-modal-upload-title">
+  <div class="xk-modal-box">
+    <div class="xk-modal-head">
+      <h3 id="xk-modal-upload-title">投稿入口</h3>
+      <button class="xk-modal-close" data-xk-close aria-label="关闭">×</button>
+    </div>
+    <p>请填写作品名称与拍摄说明，通过审核后作品将进入精选池，并有机会参与冬季星空影像大赛。</p>
+    <textarea id="xk-upload-text" placeholder="作品名称 / 拍摄地 / 器材 / 参数 / 后期思路（越具体越容易通过）"></textarea>
+    <div class="xk-modal-foot">
+      <button class="xk-btn xk-btn-soft" data-xk-close>取消</button>
+      <button class="xk-btn xk-btn-primary" id="xk-upload-submit">提交作品</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Toast ---------- */
+  var toastEl = document.getElementById('xk-toast');
+  var toastTimer = null;
+  function showToast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('is-on'); }, 2400);
+  }
+
+  /* ---------- 移动端导航 ---------- */
+  var navToggle = document.getElementById('xk-nav-toggle');
+  var nav = document.getElementById('xk-nav');
+  if(navToggle && nav){
+    navToggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? '收起导航菜单' : '展开导航菜单');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.innerWidth <= 860){
+        nav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* ---------- 搜索反馈 ---------- */
+  var searchInput = document.getElementById('xk-search-input');
+  var searchGo = document.getElementById('xk-search-go');
+  var searchHint = document.getElementById('xk-search-hint');
+  var searchIndex = [
+    '雪原之上 冬季银河 延时摄影',
+    '城市光污染地图 观测点位攻略',
+    '28mm 深空 低成本方案 测评',
+    '星轨堆栈 三种思路 教程',
+    '银河拱桥接片 全流程 后期',
+    '观星装备清单 12 件',
+    '深空后期实验室 导星精度',
+    '乌鸦之约 线上观测 投稿',
+    '创作者徽章 体系说明',
+    '冬季星空影像大赛 报名'
+  ];
+  function runSearch(){
+    if(!searchInput || !searchHint) return;
+    var kw = searchInput.value.trim();
+    if(!kw){
+      searchHint.textContent = '请输入关键词，例如「银河」「星轨」「深空」';
+      return;
+    }
+    var hits = searchIndex.filter(function(item){ return item.indexOf(kw) > -1; });
+    if(hits.length){
+      searchHint.textContent = '找到 ' + hits.length + ' 条相关星空内容：' + hits.slice(0,2).join('；');
+    }else{
+      searchHint.textContent = '暂无完全匹配的「' + kw + '」，推荐浏览「城市银河计划」或「深空后期实验室」专题。';
+    }
+  }
+  if(searchGo) searchGo.addEventListener('click', runSearch);
+  if(searchInput){
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); runSearch(); }
+    });
+    searchInput.addEventListener('input', function(){
+      if(!searchInput.value.trim() && searchHint) searchHint.textContent = '';
+    });
+  }
+
+  /* ---------- 点赞 / 收藏 ---------- */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('[data-xk-like]');
+    if(likeBtn){
+      var liked = likeBtn.classList.toggle('is-liked');
+      var txt = likeBtn.textContent;
+      var numMatch = txt.match(/[\d,]+/);
+      if(numMatch){
+        var n = parseInt(numMatch[0].replace(/,/g,''), 10);
+        n = liked ? n + 1 : Math.max(0, n - 1);
+        likeBtn.textContent = (liked ? '♥ ' : '♡ ') + n.toLocaleString('en-US');
+      }else{
+        likeBtn.textContent = liked ? '♥ 已赞' : '♡ 点赞';
+      }
+      var featureCard = likeBtn.closest('.xk-feature-body');
+      if(featureCard){
+        var bigNum = featureCard.querySelector('.xk-like-num');
+        if(bigNum){
+          var bn = parseInt(bigNum.textContent.replace(/,/g,''), 10);
+          bn = liked ? bn + 1 : Math.max(0, bn - 1);
+          bigNum.textContent = bn.toLocaleString('en-US');
+        }
+      }
+      showToast(liked ? '已点赞，感谢你的支持' : '已取消点赞');
+      return;
+    }
+
+    var saveBtn = e.target.closest('[data-xk-save]');
+    if(saveBtn){
+      var saved = saveBtn.classList.toggle('is-saved');
+      if(saveBtn.classList.contains('xk-mini-act')){
+        saveBtn.textContent = saved ? '已收藏' : '收藏';
+      }else{
+        saveBtn.textContent = saved ? '已收藏' : '收藏';
+      }
+      var featureBody = saveBtn.closest('.xk-feature-body');
+      if(featureBody){
+        var saveNum = featureBody.querySelector('.xk-save-num');
+        if(saveNum){
+          var sn = parseInt(saveNum.textContent.replace(/,/g,''), 10);
+          sn = saved ? sn + 1 : Math.max(0, sn - 1);
+          saveNum.textContent = sn.toLocaleString('en-US');
+        }
+      }
+      showToast(saved ? '已加入收藏，可在个人中心查看' : '已取消收藏');
+      return;
+    }
+  });
+
+  /* ---------- 复制链接 ---------- */
+  function copyLink(){
+    var url = window.location.href.split('#')[0];
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){
+        showToast('链接已复制，可分享给同好');
+      }).catch(function(){
+        showToast('复制失败，请手动复制地址栏链接');
+      });
+    }else{
+      showToast('当前浏览器不支持自动复制，请手动复制地址栏链接');
+    }
+  }
+  document.addEventListener('click', function(e){
+    var copyBtn = e.target.closest('[data-xk-copy]');
+    if(copyBtn){
+      copyLink();
+    }
+  });
+
+  /* ---------- Modal 通用控制 ---------- */
+  function openModal(id){
+    var m = document.getElementById(id);
+    if(!m) return;
+    m.classList.add('is-on');
+    m.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(m){
+    if(!m) return;
+    m.classList.remove('is-on');
+    m.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[data-xk-close]')){
+      closeModal(e.target.closest('.xk-modal'));
+    }
+  });
+  document.querySelectorAll('.xk-modal').forEach(function(m){
+    m.addEventListener('click', function(e){
+      if(e.target === m) closeModal(m);
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      document.querySelectorAll('.xk-modal.is-on').forEach(closeModal);
+    }
+  });
+
+  /* ---------- 评论弹窗 ---------- */
+  document.addEventListener('click', function(e){
+    var commentBtn = e.target.closest('[data-xk-comment]');
+    if(commentBtn){
+      var title = commentBtn.getAttribute('data-xk-comment') || '';
+      var target = document.getElementById('xk-modal-comment-target');
+      if(target){
+        target.textContent = title
+          ? '正在评论《' + title + '》：写下你的真实想法或拍摄疑问。'
+          : '写下你对这条星空影像的真实想法，也可以分享自己的拍摄经验。';
+      }
+      openModal('xk-modal-comment');
+    }
+  });
+  var commentSubmit = document.getElementById('xk-comment-submit');
+  if(commentSubmit){
+    commentSubmit.addEventListener('click', function(){
+      var t = document.getElementById('xk-comment-text');
+      if(!t || !t.value.trim()){
+        showToast('请先写下评论内容');
+        return;
+      }
+      t.value = '';
+      closeModal(document.getElementById('xk-modal-comment'));
+      showToast('评论已提交，审核通过后展示');
+    });
+  }
+
+  /* ---------- 作者弹窗 ---------- */
+  var authorData = {
+    '乌鸦座观测所': '常驻川西高原的星野摄影师，专注冬季银河与星轨延时，累计完成 40 余次高海拔夜拍。作品《雪原之上》系列被多家天文机构转载，坚持公开拍摄地、海拔与完整参数，主张用可复现的流程替代偶然的好运。',
+    '天美夜行': '在超大城市里寻找星空的城市观测创作者，专攻光污染条件下的拍摄与调色。城市银河系列累计播放超过 300 万次，她认为星空摄影最大的门槛不是器材，而是愿不愿意在正确的时间出门。',
+    '梦幻镜语': '深空摄影与器材测评作者，坚持自费购买设备做对比、不接受厂商送测。近年专注入门级深空方案的可行性验证，帮助预算有限的爱好者少走弯路，其测评被社区称为「最不怕得罪人的那一份」。',
+    '星野乌鸦': '把复杂后期流程拆成可照做步骤的教程作者，接片教程以「零废话、全截图」著称，配套提供工程文件与原始素材。她说最喜欢收到的反馈不是夸奖，而是「照你的步骤做出来了」。',
+    '长夜拾光': '用影像记录「为什么拍」的情感向创作者，作品常常没有惊艳画面却有完整叙事。擅长把一次普通观星夜写成三分钟短片，开头六十秒永远留给真实情绪，相信如实记录本身就足够温暖。'
+  };
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-xk-author]');
+    if(btn){
+      var name = btn.getAttribute('data-xk-author');
+      var body = document.getElementById('xk-modal-author-body');
+      var title = document.getElementById('xk-modal-author-title');
+      if(title) title.textContent = name + ' · 创作者档案';
+      if(body) body.textContent = authorData[name] || '该创作者的档案正在整理中，欢迎先浏览其代表作品。';
+      openModal('xk-modal-author');
+    }
+  });
+  var followBtn = document.getElementById('xk-author-follow');
+  if(followBtn){
+    followBtn.addEventListener('click', function(){
+      closeModal(document.getElementById('xk-modal-author'));
+      showToast('已关注该创作者，作品更新将提醒你');
+    });
+  }
+
+  /* ---------- 分享弹窗 ---------- */
+  var shareOpen = document.getElementById('xk-share-open');
+  if(shareOpen) shareOpen.addEventListener('click', function(){ openModal('xk-modal-share'); });
+  var ctaShare = document.getElementById('xk-cta-share');
+  if(ctaShare) ctaShare.addEventListener('click', function(){ openModal('xk-modal-share'); });
+  document.addEventListener('click', function(e){
+    var sBtn = e.target.closest('[data-xk-share]');
+    if(sBtn){
+      closeModal(document.getElementById('xk-modal-share'));
+      showToast('已准备分享到' + sBtn.getAttribute('data-xk-share') + '，请粘贴链接');
+    }
+  });
+  var shareCopy = document.getElementById('xk-share-copy');
+  if(shareCopy){
+    shareCopy.addEventListener('click', function(){ copyLink(); });
+  }
+
+  /* ---------- 投稿弹窗 ---------- */
+  function openUpload(){ openModal('xk-modal-upload'); }
+  var uploadOpen = document.getElementById('xk-upload-open');
+  if(uploadOpen) uploadOpen.addEventListener('click', openUpload);
+  var ctaUpload = document.getElementById('xk-cta-upload');
+  if(ctaUpload) ctaUpload.addEventListener('click', openUpload);
+  var uploadSubmit = document.getElementById('xk-upload-submit');
+  if(uploadSubmit){
+    uploadSubmit.addEventListener('click', function(){
+      var ta = document.getElementById('xk-upload-text');
+      if(!ta || !ta.value.trim()){
+        showToast('请先填写作品名称与拍摄说明');
+        return;
+      }
+      ta.value = '';
+      closeModal(document.getElementById('xk-modal-upload'));
+      showToast('作品已提交，审核结果将在三个工作日内通知');
+    });
+  }
+
+  /* ---------- 回到顶部 ---------- */
+  var toTop = document.getElementById('xk-to-top');
+  if(toTop){
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 520){ toTop.classList.add('is-on'); }
+      else{ toTop.classList.remove('is-on'); }
+    }, {passive:true});
+    toTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+})();
+</script>
+</body>
+  </html>
